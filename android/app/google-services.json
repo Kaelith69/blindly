@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881565180620",
+    "project_id": "blindly-91316",
+    "storage_bucket": "blindly-91316.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881565180620:android:fb572460a7406a8ce51869",
+        "android_client_info": {
+          "package_name": "com.simetra369.blindly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRYHfDYGxyBvnw-G7iagm78l_mh1Aut8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
