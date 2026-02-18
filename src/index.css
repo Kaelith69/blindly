@@ -691,3 +691,132 @@ button {
     transform: rotate(360deg);
   }
 }
+
+/* ---------- App Shell ---------- */
+.app-shell {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* ---------- Loading Screen ---------- */
+.loading-screen {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* ---------- Dashboard ---------- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.dashboard-title {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.user-info {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  display: none;
+}
+
+.logout-label {
+  display: none;
+  margin-left: var(--space-xs);
+}
+
+@media (min-width: 768px) {
+  .user-info {
+    display: block;
+  }
+
+  .logout-label {
+    display: inline;
+  }
+}
+
+.dashboard-content {
+  padding: var(--space-xl);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dashboard-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  backdrop-filter: blur(12px);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.dashboard-card:hover {
+  background: var(--color-bg-card-hover);
+  border-color: var(--color-border-strong);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.dashboard-card h2 {
+  font-size: 1.15rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-xs);
+}
+
+.dashboard-card p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.card-btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+.debug-panel {
+  margin-top: var(--space-2xl);
+  padding: var(--space-md);
+  background: rgba(234, 179, 8, 0.05);
+  border: 1px solid rgba(234, 179, 8, 0.15);
+  border-radius: var(--radius-md);
+  color: rgba(253, 224, 71, 0.7);
+  font-family: monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}

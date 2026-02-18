@@ -6,7 +6,7 @@ export default function AppLayout() {
     return (
         <ProtectedRoute>
             <OnboardingGate>
-                <div className="app-shell min-h-screen bg-black text-white">
+                <div className="app-shell">
                     <Outlet />
                 </div>
             </OnboardingGate>

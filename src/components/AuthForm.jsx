@@ -91,7 +91,7 @@ export default function AuthForm() {
         try {
             const result = await confirmation.confirm(otp)
             await createUserDoc(result.user.uid)
-            navigate('/onboarding')
+            navigate('/app')
         } catch (e) {
             setError(e.message.replace('Firebase: ', ''))
         }
