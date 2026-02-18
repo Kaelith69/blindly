@@ -2,7 +2,7 @@ import { ChevronRight, ChevronLeft } from 'lucide-react'
 
 export default function BasicInfoStep({ data, update, next, prev }) {
 
-    const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear()
 
     function submit(e) {
         e.preventDefault()
@@ -11,19 +11,19 @@ export default function BasicInfoStep({ data, update, next, prev }) {
     }
 
     return (
-        <div className="space-y-6 animate-fade-in">
-            <div className="space-y-2">
-                <h1 className="text-2xl font-bold">The Basics</h1>
-                <p className="text-white/60">Help us find your match.</p>
+        <div className="step-container">
+            <div className="step-header">
+                <h1>The Basics</h1>
+                <p>Help us find your match.</p>
             </div>
 
-            <form onSubmit={submit} className="space-y-4">
-                <div className="space-y-1">
-                    <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Birth Year</label>
+            <form onSubmit={submit} className="ob-form">
+                <div className="ob-field">
+                    <label className="ob-label">Birth Year</label>
                     <input
                         type="number"
                         placeholder="YYYY"
-                        className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:border-accent transition-colors"
+                        className="ob-input"
                         value={data.birthYear}
                         onChange={e => update({ birthYear: Number(e.target.value) })}
                         min={currentYear - 100}
@@ -31,11 +31,11 @@ export default function BasicInfoStep({ data, update, next, prev }) {
                     />
                 </div>
 
-                <div className="space-y-1">
-                    <label className="text-xs text-white/40 uppercase tracking-wider ml-1">City</label>
+                <div className="ob-field">
+                    <label className="ob-label">City</label>
                     <input
                         placeholder="e.g. New York, London"
-                        className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:border-accent transition-colors"
+                        className="ob-input"
                         value={data.location.approxCity}
                         onChange={e => update({
                             location: { ...data.location, approxCity: e.target.value }
@@ -43,10 +43,10 @@ export default function BasicInfoStep({ data, update, next, prev }) {
                     />
                 </div>
 
-                <div className="space-y-1">
-                    <label className="text-xs text-white/40 uppercase tracking-wider ml-1">Gender</label>
+                <div className="ob-field">
+                    <label className="ob-label">Gender</label>
                     <select
-                        className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:border-accent transition-colors appearance-none"
+                        className="ob-input ob-select"
                         value={data.gender}
                         onChange={e => update({ gender: e.target.value })}
                     >
@@ -58,18 +58,15 @@ export default function BasicInfoStep({ data, update, next, prev }) {
                     </select>
                 </div>
 
-                <div className="flex gap-4 pt-4">
-                    <button
-                        type="button"
-                        onClick={prev}
-                        className="btn btn-ghost flex-1 justify-center py-4"
-                    >
+                <div className="ob-btn-row">
+                    <button type="button" onClick={prev} className="btn btn-ghost ob-btn-back" style={{ justifyContent: 'center', padding: '14px' }}>
                         <ChevronLeft size={20} /> Back
                     </button>
                     <button
                         type="submit"
                         disabled={!data.birthYear || !data.gender || !data.location.approxCity}
-                        className="btn btn-primary flex-[2] justify-center py-4"
+                        className="btn btn-primary ob-btn-next"
+                        style={{ justifyContent: 'center', padding: '14px' }}
                     >
                         Continue <ChevronRight size={20} />
                     </button>

@@ -9,40 +9,35 @@ export default function TaglineStep({ data, update, next, prev }) {
     }
 
     return (
-        <div className="space-y-6 animate-fade-in">
-            <div className="space-y-2">
-                <h1 className="text-2xl font-bold">Your Tagline</h1>
-                <p className="text-white/60">The first thing they'll read. Make it count.</p>
+        <div className="step-container">
+            <div className="step-header">
+                <h1>Your Tagline</h1>
+                <p>The first thing they'll read. Make it count.</p>
             </div>
 
-            <form onSubmit={submit} className="space-y-4">
-                <div className="relative">
+            <form onSubmit={submit} className="ob-form">
+                <div>
                     <textarea
                         maxLength={80}
                         rows={3}
-                        className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:border-accent transition-colors resize-none text-lg"
+                        className="ob-input ob-textarea ob-input-lg"
                         placeholder="e.g. Aspiring chef who burns toast..."
                         value={data.tagline}
                         onChange={e => update({ tagline: e.target.value })}
                         autoFocus
                     />
-                    <div className="text-right text-xs text-white/40 mt-2">
-                        {data.tagline.length}/80
-                    </div>
+                    <div className="ob-char-count">{data.tagline.length}/80</div>
                 </div>
 
-                <div className="flex gap-4 pt-4">
-                    <button
-                        type="button"
-                        onClick={prev}
-                        className="btn btn-ghost flex-1 justify-center py-4"
-                    >
+                <div className="ob-btn-row">
+                    <button type="button" onClick={prev} className="btn btn-ghost ob-btn-back" style={{ justifyContent: 'center', padding: '14px' }}>
                         <ChevronLeft size={20} /> Back
                     </button>
                     <button
                         type="submit"
                         disabled={!data.tagline}
-                        className="btn btn-primary flex-[2] justify-center py-4"
+                        className="btn btn-primary ob-btn-next"
+                        style={{ justifyContent: 'center', padding: '14px' }}
                     >
                         Continue <ChevronRight size={20} />
                     </button>

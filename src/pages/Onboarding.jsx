@@ -17,7 +17,7 @@ export default function Onboarding() {
         birthYear: "",
         gender: "",
         location: {
-            countryCode: "IN", // Default, could be dynamic later
+            countryCode: "IN",
             approxCity: ""
         },
         tagline: "",
@@ -25,16 +25,16 @@ export default function Onboarding() {
         prompts: []
     })
 
-    function next() {
-        setStep(s => s + 1)
-    }
+    function next() { setStep(s => s + 1) }
+    function prev() { setStep(s => s - 1) }
+    function update(data) { setProfile(prev => ({ ...prev, ...data })) }
 
-    function prev() {
-        setStep(s => s - 1)
-    }
-
-    function update(data) {
-        setProfile(prev => ({ ...prev, ...data }))
+    function handleCancel() {
+        if (step === 0) {
+            if (confirm("Cancel profile setup?")) navigate('/')
+        } else {
+            prev()
+        }
     }
 
     const steps = [
@@ -49,53 +49,32 @@ export default function Onboarding() {
     const progress = ((step + 1) / steps.length) * 100
 
     return (
-        <div className="app-shell min-h-[100dvh] flex flex-col">
-            {/* Background */}
-            <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="ambient-orb orb-1 opacity-50" />
-                <div className="ambient-orb orb-2 top-96 opacity-30" />
+        <div className="onboarding-shell">
+            <div className="onboarding-bg">
+                <div className="ambient-orb orb-1" style={{ opacity: 0.5 }} />
+                <div className="ambient-orb orb-2" style={{ opacity: 0.3 }} />
             </div>
 
-            <header className="p-6 pb-2 relative z-10">
-                <div className="flex justify-between items-center mb-6">
-                    <button
-                        onClick={() => handleCancel()}
-                        className="text-white/40 hover:text-white transition-colors"
-                        title="Cancel Onboarding"
-                    >
-                        {step === 0 ? <ArrowLeft size={24} /> : <div className="w-6" />}
+            <header className="onboarding-header">
+                <div className="onboarding-header-row">
+                    <button onClick={handleCancel} className="onboarding-back-btn" title="Back">
+                        {step === 0 ? <ArrowLeft size={22} /> : <div className="onboarding-spacer" />}
                     </button>
-                    <div className="flex items-center gap-2 text-sm font-medium text-white/80">
-                        <Sparkles size={14} className="text-accent" />
+                    <div className="onboarding-step-label">
+                        <Sparkles size={14} />
                         <span>Step {step + 1} of {steps.length}</span>
                     </div>
-                    <div className="w-6" /> {/* Spacer */}
+                    <div className="onboarding-spacer" />
                 </div>
 
-                {/* Progress Bar */}
-                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                        className="h-full bg-accent transition-all duration-500 ease-out"
-                        style={{ width: `${progress}%` }}
-                    />
+                <div className="progress-track">
+                    <div className="progress-fill" style={{ width: `${progress}%` }} />
                 </div>
             </header>
 
-            <main className="flex-1 p-6 relative z-10 flex flex-col">
+            <main className="onboarding-main">
                 {steps[step]}
             </main>
         </div>
     )
-
-    function handleCancel() {
-        if (step === 0) {
-            // Go back to auth or home? usually logout.
-            // But for now let's just go home.
-            if (confirm("Cancel profile setup?")) {
-                navigate('/')
-            }
-        } else {
-            prev()
-        }
-    }
 }

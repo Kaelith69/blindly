@@ -9,17 +9,17 @@ export default function HandleStep({ data, update, next }) {
     }
 
     return (
-        <div className="space-y-6 animate-fade-in">
-            <div className="space-y-2">
-                <h1 className="text-2xl font-bold">Choose your handle</h1>
-                <p className="text-white/60">This is how you'll be known on Blindly.</p>
+        <div className="step-container">
+            <div className="step-header">
+                <h1>Choose your handle</h1>
+                <p>This is how you'll be known on Blindly.</p>
             </div>
 
-            <form onSubmit={submit} className="space-y-4">
-                <div className="relative">
-                    <AtSign className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" size={20} />
+            <form onSubmit={submit} className="ob-form">
+                <div className="ob-input-icon-wrap">
+                    <AtSign className="ob-input-icon" size={20} />
                     <input
-                        className="w-full p-4 pl-12 bg-white/10 border border-white/20 rounded-xl focus:outline-none focus:border-accent transition-colors text-lg"
+                        className="ob-input ob-input-lg ob-input-with-icon"
                         placeholder="username"
                         value={data.handle}
                         onChange={e => update({ handle: e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '') })}
@@ -30,7 +30,8 @@ export default function HandleStep({ data, update, next }) {
                 <button
                     type="submit"
                     disabled={data.handle.length < 3}
-                    className="btn btn-primary w-full py-4 text-lg justify-center"
+                    className="btn btn-primary ob-btn-full"
+                    style={{ justifyContent: 'center', padding: '14px' }}
                 >
                     Continue <ChevronRight size={20} />
                 </button>

@@ -19,8 +19,6 @@ export default function ReviewStep({ data, prev }) {
                 onboardingCompleted: true,
                 updatedAt: serverTimestamp()
             })
-
-            // Navigate to app
             navigate('/app', { replace: true })
         } catch (e) {
             console.error("Error saving profile:", e)
@@ -31,58 +29,50 @@ export default function ReviewStep({ data, prev }) {
     }
 
     return (
-        <div className="space-y-6 animate-fade-in h-[calc(100vh-140px)] flex flex-col">
-            <div className="space-y-2">
-                <h1 className="text-2xl font-bold">Ready to join?</h1>
-                <p className="text-white/60">Review your profile card.</p>
+        <div className="step-container-full">
+            <div className="step-header">
+                <h1>Ready to join?</h1>
+                <p>Review your profile card.</p>
             </div>
 
-            <div className="flex-1 overflow-y-auto -mr-2 pr-2">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-6">
-                    <div className="text-center space-y-1">
-                        <h2 className="text-2xl font-bold">@{data.handle}</h2>
-                        <p className="text-white/60 text-sm">{data.gender} • {2026 - data.birthYear} • {data.location.approxCity}</p>
+            <div className="review-scroll">
+                <div className="review-card">
+                    <div className="review-identity">
+                        <div className="review-handle">@{data.handle}</div>
+                        <div className="review-meta">{data.gender} • {2026 - data.birthYear} • {data.location.approxCity}</div>
                     </div>
 
-                    <div className="bg-white/5 rounded-xl p-4 text-center italic text-lg text-white/90">
-                        "{data.tagline}"
-                    </div>
+                    <div className="review-tagline">"{data.tagline}"</div>
 
-                    <div className="flex flex-wrap justify-center gap-2">
+                    <div className="review-tags">
                         {data.tags.map(tag => (
-                            <span key={tag} className="text-xs px-3 py-1 bg-white/10 rounded-full text-white/70">
-                                {tag}
-                            </span>
+                            <span key={tag} className="review-tag">{tag}</span>
                         ))}
                     </div>
 
-                    <div className="space-y-4 pt-2">
+                    <div className="review-prompts">
                         {data.prompts.map(prompt => (
-                            <div key={prompt.id} className="space-y-1">
-                                <p className="text-xs text-accent uppercase tracking-wide font-medium">{prompt.question}</p>
-                                <p className="text-sm text-white/80">{prompt.answer}</p>
+                            <div key={prompt.id}>
+                                <div className="review-prompt-q">{prompt.question}</div>
+                                <div className="review-prompt-a">{prompt.answer}</div>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
 
-            <div className="pt-2 flex gap-4">
-                <button
-                    type="button"
-                    onClick={prev}
-                    className="btn btn-ghost flex-1 justify-center py-4"
-                    disabled={loading}
-                >
+            <div className="ob-btn-row">
+                <button type="button" onClick={prev} className="btn btn-ghost ob-btn-back" style={{ justifyContent: 'center', padding: '14px' }} disabled={loading}>
                     <ChevronLeft size={20} /> Back
                 </button>
                 <button
                     type="button"
                     onClick={submit}
                     disabled={loading}
-                    className="btn btn-primary flex-[2] justify-center py-4"
+                    className="btn btn-primary ob-btn-next"
+                    style={{ justifyContent: 'center', padding: '14px' }}
                 >
-                    {loading ? <Loader2 className="animate-spin" /> : <>Finish <Check size={20} /></>}
+                    {loading ? <Loader2 className="animate-spin" /> : <><Check size={20} /> Finish</>}
                 </button>
             </div>
         </div>
