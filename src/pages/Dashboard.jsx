@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { LogOut, Heart, MessageCircle, Sparkles } from 'lucide-react'
+import { LogOut, Sparkles, MessageCircle } from 'lucide-react'
+import SwipeDeck from '../components/SwipeDeck'
 
 export default function Dashboard() {
     const { currentUser, userDoc, logout } = useAuth()
@@ -11,55 +12,53 @@ export default function Dashboard() {
         navigate('/')
     }
 
-    return (
-        <div className="app-container">
-            <div className="ambient-orb orb-1" />
-            <div className="ambient-orb orb-2" />
+    if (!userDoc) return null;
 
-            <header className="dashboard-header">
+    const hasMatch = !!userDoc.currentMatchId
+
+    return (
+        <div className="onboarding-shell overflow-hidden">
+            {/* Background Orbs */}
+            <div className="onboarding-bg">
+                <div className="ambient-orb orb-1 opacity-20" />
+                <div className="ambient-orb orb-2 top-96 opacity-10" />
+            </div>
+
+            {/* Header */}
+            <header className="dashboard-header z-10 relative">
                 <div className="dashboard-brand">
-                    <Sparkles size={20} />
+                    <Sparkles size={20} className="text-accent" />
                     <h1 className="dashboard-title">Blindly</h1>
                 </div>
 
                 <div className="user-controls">
-                    <div className="user-info">
-                        {currentUser?.email || currentUser?.phoneNumber}
-                    </div>
-                    <button onClick={handleLogout} className="btn btn-ghost" style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
-                        <LogOut size={16} />
-                        <span className="logout-label">Logout</span>
+                    <button onClick={handleLogout} className="btn btn-ghost p-2">
+                        <LogOut size={20} />
                     </button>
                 </div>
             </header>
 
-            <div className="dashboard-content">
-                <div className="dashboard-grid">
-                    <div className="dashboard-card">
-                        <div className="feature-icon">
-                            <Heart size={24} />
+            {/* Main Content Area */}
+            <main className="flex-1 relative z-10 overflow-hidden flex flex-col">
+                {hasMatch ? (
+                    <div className="flex flex-col items-center justify-center h-full text-center p-6 space-y-6">
+                        <div className="w-24 h-24 bg-accent/20 rounded-full flex items-center justify-center text-accent animate-pulse">
+                            <MessageCircle size={48} />
                         </div>
-                        <h2>Discovery</h2>
-                        <p>Find your one true match. Zero distractions.</p>
-                        <button className="btn btn-primary card-btn-full">Start Swiping</button>
+                        <h2 className="text-2xl font-bold">You have a match!</h2>
+                        <p className="text-white/60 max-w-xs">
+                            Discovery is paused while you explore this connection.
+                        </p>
+                        <button className="btn btn-primary w-full max-w-xs py-4 justify-center">
+                            Open Chat
+                        </button>
                     </div>
-
-                    <div className="dashboard-card">
-                        <div className="feature-icon" style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6' }}>
-                            <MessageCircle size={24} />
-                        </div>
-                        <h2>Messages</h2>
-                        <p>Deep conversations with your current match.</p>
-                        <button className="btn btn-ghost card-btn-full">Open Chat</button>
+                ) : (
+                    <div className="swipe-deck-wrapper">
+                        <SwipeDeck />
                     </div>
-                </div>
-
-                <div className="debug-panel">
-                    <strong>DEBUG</strong><br />
-                    UID: {currentUser?.uid}<br />
-                    Status: {userDoc ? `Active (${userDoc.status})` : 'No profile yet'}
-                </div>
-            </div>
+                )}
+            </main>
         </div>
     )
 }
