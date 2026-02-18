@@ -8,7 +8,13 @@
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
     <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" />
     <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
-  </section>
+  </p>
+  <p align="center">
+    <a href="https://kaelith69.github.io/blindly/">
+      <img src="https://img.shields.io/badge/Live_Demo-Checkout_Blindly-8b5cf6?style=for-the-badge&logo=google-chrome&logoColor=white" />
+    </a>
+  </p>
+</section>
 
 ---
 
