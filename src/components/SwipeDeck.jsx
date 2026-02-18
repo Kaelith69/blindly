@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion'
-import { X, Heart, Loader2 } from 'lucide-react'
-import { collection, query, where, getDocs, limit, addDoc, serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore'
+import { X, Heart, Loader2, Sparkles } from 'lucide-react'
+import { collection, query, where, getDocs, limit, serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore'
 import { db, auth } from '../firebase'
 import ProfileCard from './ProfileCard'
 
@@ -9,7 +9,6 @@ export default function SwipeDeck() {
     const [candidates, setCandidates] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
     const [loading, setLoading] = useState(true)
-    const [exitDirection, setExitDirection] = useState(null)
 
     // Motion values for the top card
     const x = useMotionValue(0)
@@ -26,14 +25,6 @@ export default function SwipeDeck() {
             try {
                 const uid = auth.currentUser.uid
 
-                // 1. Get IDs of users already swiped on
-                // Ideally this should be computed or stored in a way to avoid large reads
-                // For MVP, we'll just fetch a few recent swipes or rely on client-side filtering if small scale
-                // A better approach: Store 'swipedUsers' subselection or array in user doc (limit 100)
-
-                // MVP: Just fetch all users except self (and naive filter)
-                // Real app: Needs robust recommendation engine Cloud Function
-
                 const q = query(
                     collection(db, "users"),
                     where("status", "==", "active"),
@@ -41,21 +32,21 @@ export default function SwipeDeck() {
                     limit(20)
                 )
 
-                // Also fetch swipes
-                const swipesSnapshot = await getDocs(collection(db, "users", uid, "swipes"));
-                const swipedIds = new Set(swipesSnapshot.docs.map(doc => doc.id))
-                swipedIds.add(uid) // Don't show self
+                // Get already-swiped IDs
+                const swipesSnapshot = await getDocs(collection(db, "users", uid, "swipes"))
+                const swipedIds = new Set(swipesSnapshot.docs.map(d => d.id))
+                swipedIds.add(uid) // Exclude self
 
                 const querySnapshot = await getDocs(q)
                 const newCandidates = []
 
-                querySnapshot.forEach((doc) => {
-                    if (!swipedIds.has(doc.id)) {
-                        newCandidates.push({ id: doc.id, ...doc.data() })
+                querySnapshot.forEach((docSnap) => {
+                    if (!swipedIds.has(docSnap.id)) {
+                        newCandidates.push({ id: docSnap.id, ...docSnap.data() })
                     }
                 })
 
-                setCandidates(newCandidates) // Randomize if needed
+                setCandidates(newCandidates)
             } catch (error) {
                 console.error("Error fetching candidates:", error)
             } finally {
@@ -70,28 +61,23 @@ export default function SwipeDeck() {
         if (currentIndex >= candidates.length) return
 
         const candidate = candidates[currentIndex]
-        setExitDirection(direction) // Triggers exit animation
 
         // Record swipe in Firestore
         const uid = auth.currentUser.uid
         const swipeRef = doc(db, "users", uid, "swipes", candidate.id)
 
-        // Optimistic UI update - remove card after delay
+        // Advance card
         setTimeout(() => {
             setCurrentIndex(prev => prev + 1)
-            setExitDirection(null)
             x.set(0)
         }, 200)
 
         try {
-            // Write swipe
             await setDoc(swipeRef, {
                 direction: direction,
                 timestamp: serverTimestamp()
             })
 
-            // Use custom logic or triggers for match
-            // Here: Client-side match check (not secure for real production but fine for MVP)
             if (direction === 'right') {
                 await checkForMatch(uid, candidate.id)
             }
@@ -101,24 +87,19 @@ export default function SwipeDeck() {
     }
 
     const checkForMatch = async (currentUid, targetUid) => {
-        // Check if target has already liked current user
         const targetSwipeRef = doc(db, "users", targetUid, "swipes", currentUid)
         const targetSwipeSnap = await getDoc(targetSwipeRef)
 
         if (targetSwipeSnap.exists() && targetSwipeSnap.data().direction === 'right') {
             console.log("IT'S A MATCH!")
-            // Create match document
-            // Update both users currentMatchId
-            // This should transactionally happen
-            // For now, let's just log it. Match Logic usually handled by Cloud Function
-            alert("It's a Match! (Logic Pending)")
+            alert("It's a Match! 🎉")
         }
     }
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center h-full">
-                <Loader2 className="animate-spin text-accent" size={48} />
+            <div className="loading-screen">
+                <Loader2 className="spinner" size={48} style={{ color: 'var(--color-accent)' }} />
             </div>
         )
     }
@@ -126,7 +107,7 @@ export default function SwipeDeck() {
     if (currentIndex >= candidates.length) {
         return (
             <div className="no-cards">
-                <Sparkles size={48} className="mx-auto mb-4 opacity-50" />
+                <Sparkles size={48} style={{ color: 'var(--color-text-tertiary)', marginBottom: 'var(--space-md)' }} />
                 <h2>No more profiles</h2>
                 <p>Check back later for new matches.</p>
             </div>
@@ -146,7 +127,7 @@ export default function SwipeDeck() {
                         dragHandlers={{
                             drag: "x",
                             dragConstraints: { left: 0, right: 0 },
-                            onDragEnd: (e, { offset, velocity }) => {
+                            onDragEnd: (e, { offset }) => {
                                 const swipeThreshold = 100;
                                 if (offset.x > swipeThreshold) {
                                     handleSwipe('right');
@@ -158,17 +139,13 @@ export default function SwipeDeck() {
                     />
                 </AnimatePresence>
 
-                {/* Swipe Overlays (Like/Nope) */}
-                <motion.div style={{ opacity: likeOpacity }} className="absolute top-10 right-10 z-50 pointer-events-none">
-                    <div className="border-4 border-green-500 text-green-500 font-bold text-4xl px-4 py-2 rounded-lg transform rotate-12">
-                        YES
-                    </div>
+                {/* Swipe Overlays */}
+                <motion.div style={{ opacity: likeOpacity }} className="swipe-overlay swipe-overlay-right">
+                    <div className="swipe-label swipe-label-yes">YES</div>
                 </motion.div>
 
-                <motion.div style={{ opacity: nopeOpacity }} className="absolute top-10 left-10 z-50 pointer-events-none">
-                    <div className="border-4 border-red-500 text-red-500 font-bold text-4xl px-4 py-2 rounded-lg transform -rotate-12">
-                        NOPE
-                    </div>
+                <motion.div style={{ opacity: nopeOpacity }} className="swipe-overlay swipe-overlay-left">
+                    <div className="swipe-label swipe-label-nope">NOPE</div>
                 </motion.div>
             </div>
 

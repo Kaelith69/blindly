@@ -1,19 +1,6 @@
 import { motion } from 'framer-motion'
 import { Sparkles, MapPin, Cake, User } from 'lucide-react'
 
-// Variants for card animations
-export const cardVariants = {
-    initial: { scale: 0.95, opacity: 0, y: 20 },
-    animate: { scale: 1, opacity: 1, y: 0 },
-    exit: (direction) => ({
-        x: direction > 0 ? 500 : -500,
-        opacity: 0,
-        scale: 0.9,
-        rotate: direction > 0 ? 20 : -20,
-        transition: { duration: 0.2 }
-    })
-}
-
 export default function ProfileCard({ user, style, dragHandlers }) {
     const currentYear = new Date().getFullYear();
     const age = user.birthYear ? currentYear - user.birthYear : '??';
@@ -37,7 +24,7 @@ export default function ProfileCard({ user, style, dragHandlers }) {
                     </div>
                 </div>
 
-                {/* Tagline - The Hook */}
+                {/* Tagline */}
                 <div className="profile-tagline">
                     "{user.tagline}"
                 </div>
@@ -49,7 +36,7 @@ export default function ProfileCard({ user, style, dragHandlers }) {
                     ))}
                 </div>
 
-                {/* Prompts Section - The Substance */}
+                {/* Prompts */}
                 <div className="profile-prompts">
                     {user.prompts && user.prompts.map((prompt, i) => (
                         <div key={i} className="profile-prompt">
@@ -59,9 +46,9 @@ export default function ProfileCard({ user, style, dragHandlers }) {
                     ))}
                 </div>
 
-                {/* Watermark/Brand (Optional) */}
+                {/* Brand Watermark */}
                 <div className="profile-footer">
-                    <Sparkles size={16} className="text-accent opacity-50" />
+                    <Sparkles size={16} style={{ color: 'var(--color-accent)', opacity: 0.5 }} />
                 </div>
             </div>
         </motion.div>

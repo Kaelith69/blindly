@@ -1538,3 +1538,93 @@ button {
   background: rgba(16, 185, 129, 0.1);
   border-color: rgba(16, 185, 129, 0.3);
 }
+
+/* --- Swipe Overlays (YES/NOPE labels) --- */
+.swipe-overlay {
+  position: absolute;
+  top: 40px;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.swipe-overlay-right {
+  right: 30px;
+}
+
+.swipe-overlay-left {
+  left: 30px;
+}
+
+.swipe-label {
+  font-size: 2rem;
+  font-weight: var(--font-weight-black);
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
+  border: 4px solid;
+  letter-spacing: 0.05em;
+}
+
+.swipe-label-yes {
+  color: #10b981;
+  border-color: #10b981;
+  transform: rotate(12deg);
+}
+
+.swipe-label-nope {
+  color: #ef4444;
+  border-color: #ef4444;
+  transform: rotate(-12deg);
+}
+
+/* --- Match Active View --- */
+.match-active-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: var(--space-lg);
+  gap: var(--space-lg);
+}
+
+.match-active-view h2 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.match-active-view p {
+  color: var(--color-text-secondary);
+  max-width: 280px;
+}
+
+.match-icon-circle {
+  width: 96px;
+  height: 96px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  animation: pulse 2s infinite;
+}
+
+/* --- Spinner Animation --- */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
