@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    
+    function isSignedIn() { return request.auth != null; }
+    function uid() { return request.auth.uid; }
+
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && userId == uid();
+      // Allow update only for own profile and lock critical fields
+      allow update: if isSignedIn() && userId == uid()
+                    && !('status' in request.resource.data) 
+                    && !('currentMatchId' in request.resource.data);
+    }
+    
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

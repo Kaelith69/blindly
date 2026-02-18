@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 import { Sun, Moon, Heart, MessageCircle, Eye, EyeOff, Sparkles } from 'lucide-react'
 
@@ -47,10 +48,10 @@ function Home() {
                 </p>
 
                 <div className="hero-actions">
-                    <button className="btn btn-primary">
+                    <Link to="/auth" className="btn btn-primary">
                         <Heart size={18} />
                         Get Started
-                    </button>
+                    </Link>
                     <button className="btn btn-ghost">
                         Learn More
                     </button>
