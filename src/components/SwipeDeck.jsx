@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion'
 import { X, Heart, Loader2, Sparkles } from 'lucide-react'
-import { collection, query, where, getDocs, limit, serverTimestamp, doc, getDoc, setDoc } from 'firebase/firestore'
+import { collection, query, where, getDocs, limit, serverTimestamp, doc, getDoc, setDoc, runTransaction } from 'firebase/firestore'
 import { db, auth } from '../firebase'
 import ProfileCard from './ProfileCard'
 
@@ -9,13 +9,14 @@ export default function SwipeDeck() {
     const [candidates, setCandidates] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
     const [loading, setLoading] = useState(true)
+    const [matchFound, setMatchFound] = useState(null)
 
     // Motion values for the top card
     const x = useMotionValue(0)
-    const rotate = useTransform(x, [-200, 200], [-30, 30])
-    const opacity = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5])
-    const likeOpacity = useTransform(x, [0, 100], [0, 1])
-    const nopeOpacity = useTransform(x, [-100, 0], [1, 0])
+    const rotate = useTransform(x, [-200, 200], [-25, 25])
+    const opacity = useTransform(x, [-200, 0, 200], [0.4, 1, 0.4])
+    const likeOpacity = useTransform(x, [0, 120], [0, 1])
+    const nopeOpacity = useTransform(x, [-120, 0], [1, 0])
 
     // Fetch candidates on mount
     useEffect(() => {
@@ -61,53 +62,105 @@ export default function SwipeDeck() {
         if (currentIndex >= candidates.length) return
 
         const candidate = candidates[currentIndex]
-
-        // Record swipe in Firestore
         const uid = auth.currentUser.uid
         const swipeRef = doc(db, "users", uid, "swipes", candidate.id)
 
         // Advance card
-        setTimeout(() => {
-            setCurrentIndex(prev => prev + 1)
-            x.set(0)
-        }, 200)
+        setCurrentIndex(prev => prev + 1)
+        x.set(0)
 
         try {
+            // Record swipe
             await setDoc(swipeRef, {
-                direction: direction,
+                direction,
                 timestamp: serverTimestamp()
             })
 
+            // Check for mutual like
             if (direction === 'right') {
-                await checkForMatch(uid, candidate.id)
+                const matched = await checkForMatch(uid, candidate.id)
+                if (matched) {
+                    setMatchFound(candidate)
+                }
             }
         } catch (e) {
-            console.error("Swipe failed", e)
+            console.error("Swipe failed:", e)
         }
     }
 
     const checkForMatch = async (currentUid, targetUid) => {
+        // Check if target already liked us
         const targetSwipeRef = doc(db, "users", targetUid, "swipes", currentUid)
         const targetSwipeSnap = await getDoc(targetSwipeRef)
 
         if (targetSwipeSnap.exists() && targetSwipeSnap.data().direction === 'right') {
-            console.log("IT'S A MATCH!")
-            alert("It's a Match! 🎉")
+            // MATCH! Create match document with transaction
+            try {
+                const matchId = [currentUid, targetUid].sort().join('_')
+                const matchRef = doc(db, "matches", matchId)
+
+                await runTransaction(db, async (transaction) => {
+                    const matchDoc = await transaction.get(matchRef)
+                    if (matchDoc.exists()) return // Already matched
+
+                    // Create the match
+                    transaction.set(matchRef, {
+                        users: [currentUid, targetUid],
+                        createdAt: serverTimestamp(),
+                        status: 'active'
+                    })
+
+                    // Update both users
+                    transaction.update(doc(db, "users", currentUid), {
+                        currentMatchId: matchId
+                    })
+                    transaction.update(doc(db, "users", targetUid), {
+                        currentMatchId: matchId
+                    })
+                })
+
+                return true
+            } catch (e) {
+                console.error("Match creation failed:", e)
+                return false
+            }
         }
+
+        return false
+    }
+
+    // Match overlay dismiss
+    if (matchFound) {
+        return (
+            <div className="match-overlay">
+                <div className="match-overlay-content">
+                    <div className="match-sparkle">✨</div>
+                    <h1 className="match-title">It's a Match!</h1>
+                    <p className="match-subtitle">You and @{matchFound.handle} liked each other.</p>
+                    <button
+                        className="btn btn-primary"
+                        style={{ width: '100%', padding: '14px', justifyContent: 'center', marginTop: '16px' }}
+                        onClick={() => setMatchFound(null)}
+                    >
+                        Start Chatting
+                    </button>
+                </div>
+            </div>
+        )
     }
 
     if (loading) {
         return (
             <div className="loading-screen">
-                <Loader2 className="spinner" size={48} style={{ color: 'var(--color-accent)' }} />
+                <Loader2 className="animate-spin" size={48} style={{ color: 'var(--color-accent)' }} />
             </div>
         )
     }
 
     if (currentIndex >= candidates.length) {
         return (
-            <div className="no-cards">
-                <Sparkles size={48} style={{ color: 'var(--color-text-tertiary)', marginBottom: 'var(--space-md)' }} />
+            <div className="empty-state">
+                <div className="empty-state-icon">🔍</div>
                 <h2>No more profiles</h2>
                 <p>Check back later for new matches.</p>
             </div>
@@ -128,11 +181,10 @@ export default function SwipeDeck() {
                             drag: "x",
                             dragConstraints: { left: 0, right: 0 },
                             onDragEnd: (e, { offset }) => {
-                                const swipeThreshold = 100;
-                                if (offset.x > swipeThreshold) {
-                                    handleSwipe('right');
-                                } else if (offset.x < -swipeThreshold) {
-                                    handleSwipe('left');
+                                if (offset.x > 100) {
+                                    handleSwipe('right')
+                                } else if (offset.x < -100) {
+                                    handleSwipe('left')
                                 }
                             }
                         }}

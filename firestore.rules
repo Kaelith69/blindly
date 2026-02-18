@@ -5,18 +5,29 @@ service cloud.firestore {
     function isSignedIn() { return request.auth != null; }
     function uid() { return request.auth.uid; }
 
+    // --- USER PROFILES ---
     match /users/{userId} {
       allow read: if isSignedIn();
       allow create: if isSignedIn() && userId == uid();
-      // Allow update only for own profile and lock critical fields
-      allow update: if isSignedIn() && userId == uid()
-                    && !('status' in request.resource.data) 
-                    && !('currentMatchId' in request.resource.data);
+      allow update: if isSignedIn() && userId == uid();
+
+      // --- SWIPES SUBCOLLECTION ---
+      match /swipes/{targetId} {
+        allow read, write: if isSignedIn() && userId == uid();
+      }
     }
-    
-    // Default deny
-    match /{document=**} {
-      allow read, write: if false;
+
+    // --- MATCHES ---
+    match /matches/{matchId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isSignedIn();
+
+      // --- MESSAGES SUBCOLLECTION ---
+      match /messages/{messageId} {
+        allow read: if isSignedIn();
+        allow create: if isSignedIn();
+      }
     }
   }
 }

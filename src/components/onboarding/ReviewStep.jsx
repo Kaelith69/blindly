@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ChevronLeft, Check, Loader2 } from 'lucide-react'
-import { doc, updateDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore'
 import { auth, db } from '../../firebase'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,15 +14,15 @@ export default function ReviewStep({ data, prev }) {
         setLoading(true)
         try {
             const uid = auth.currentUser.uid
-            await updateDoc(doc(db, "users", uid), {
+            await setDoc(doc(db, "users", uid), {
                 ...data,
                 onboardingCompleted: true,
                 updatedAt: serverTimestamp()
-            })
+            }, { merge: true })
             navigate('/app', { replace: true })
         } catch (e) {
             console.error("Error saving profile:", e)
-            alert("Failed to save profile. Please try again.")
+            alert("Save failed: " + (e.code || e.message || "Unknown error"))
         } finally {
             setLoading(false)
         }
