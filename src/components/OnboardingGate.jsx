@@ -11,11 +11,12 @@ export default function OnboardingGate({ children }) {
         if (!loading && userDoc) {
             const incomplete =
                 !userDoc.tagline ||
-                !userDoc.displayName
-
+                !userDoc.handle // Basic check for now
             if (incomplete) {
                 // Uncomment when onboarding form is built:
-                // navigate('/onboarding', { replace: true })
+                if (window.location.pathname !== '/onboarding') {
+                    navigate('/onboarding', { replace: true })
+                }
             }
         }
     }, [userDoc, loading, navigate])
