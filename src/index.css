@@ -820,3 +820,449 @@ button {
   font-size: 0.78rem;
   line-height: 1.6;
 }
+
+/* ============================================
+   ONBOARDING — Multi-Step Flow
+   ============================================ */
+
+/* --- Page Shell --- */
+.onboarding-shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  position: relative;
+}
+
+.onboarding-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.onboarding-header {
+  padding: var(--space-lg) var(--space-lg) var(--space-sm);
+  position: relative;
+  z-index: 10;
+}
+
+.onboarding-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.onboarding-back-btn {
+  color: var(--color-text-tertiary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--duration-fast);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-back-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.onboarding-step-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+.onboarding-spacer {
+  width: 32px;
+}
+
+/* --- Progress Bar --- */
+.progress-track {
+  height: 3px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-accent);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.onboarding-main {
+  flex: 1;
+  padding: var(--space-lg);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Step Layout --- */
+.step-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  animation: fadeSlideIn 0.4s var(--ease-out);
+}
+
+.step-container-full {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  flex: 1;
+  animation: fadeSlideIn 0.4s var(--ease-out);
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-header h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-xs);
+}
+
+.step-header p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* --- Onboarding Inputs --- */
+.ob-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ob-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ob-label {
+  font-size: 0.7rem;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-left: 4px;
+}
+
+.ob-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  transition: border-color var(--duration-fast);
+  outline: none;
+}
+
+.ob-input:focus {
+  border-color: var(--color-accent);
+}
+
+.ob-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.ob-input-lg {
+  font-size: 1.1rem;
+  padding: 16px;
+}
+
+.ob-input-icon-wrap {
+  position: relative;
+}
+
+.ob-input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+}
+
+.ob-input-with-icon {
+  padding-left: 44px;
+}
+
+.ob-textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+.ob-char-count {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  margin-top: 4px;
+}
+
+.ob-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* --- Button Row --- */
+.ob-btn-row {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.ob-btn-back {
+  flex: 1;
+}
+
+.ob-btn-next {
+  flex: 2;
+}
+
+.ob-btn-full {
+  width: 100%;
+}
+
+/* --- Tags --- */
+.tags-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: var(--space-md);
+}
+
+.tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.tag-chip {
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  user-select: none;
+}
+
+.tag-chip:hover {
+  background: var(--color-bg-card-hover);
+}
+
+.tag-chip.selected {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.tags-footer {
+  padding-top: var(--space-sm);
+}
+
+.tags-counter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+/* --- Prompts --- */
+.prompts-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.prompt-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.prompt-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-sm);
+}
+
+.prompt-select {
+  background: transparent;
+  border: none;
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.85rem;
+  outline: none;
+  flex: 1;
+  font-family: var(--font-primary);
+  cursor: pointer;
+}
+
+.prompt-select option {
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.prompt-remove-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--duration-fast);
+}
+
+.prompt-remove-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.prompt-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  resize: none;
+  outline: none;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.prompt-textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.add-prompt-btn {
+  width: 100%;
+  padding: 16px;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background: none;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  transition: all var(--duration-fast);
+}
+
+.add-prompt-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+
+/* --- Review Card --- */
+.review-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.review-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.review-identity {
+  text-align: center;
+}
+
+.review-handle {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 4px;
+}
+
+.review-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.review-tagline {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-text-primary);
+}
+
+.review-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.review-tag {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  background: var(--color-bg-card-hover);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+}
+
+.review-prompts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.review-prompt-q {
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 2px;
+}
+
+.review-prompt-a {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
