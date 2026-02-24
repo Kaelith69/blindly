@@ -91,5 +91,5 @@ Check out the [WIKI.md](WIKI.md) for a deep dive into the architecture, Firestor
 ---
 
 <p align="center">
-  Built with 💜 by sayan
+  Built with 💜 by Kaelith69 
 </p>
