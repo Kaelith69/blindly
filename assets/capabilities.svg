@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 540" width="820" height="540">
+  <defs>
+    <linearGradient id="cap-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A0A"/>
+      <stop offset="100%" style="stop-color:#0F0A1A"/>
+    </linearGradient>
+    <linearGradient id="cap-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#EC4899"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="820" height="540" fill="url(#cap-bg)" rx="14"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#E4E4F7" letter-spacing="2">CAPABILITY OVERVIEW</text>
+  <line x1="240" y1="44" x2="580" y2="44" stroke="url(#cap-accent)" stroke-width="1" opacity="0.5"/>
+
+  <!-- Status legend -->
+  <g transform="translate(524, 22)">
+    <circle cx="6" cy="6" r="5" fill="#8B5CF6" opacity="0.9"/>
+    <text x="16" y="10" font-family="monospace" font-size="8.5" fill="#A1A1AA">Shipped</text>
+    <circle cx="82" cy="6" r="5" fill="#F472B6" opacity="0.6"/>
+    <text x="92" y="10" font-family="monospace" font-size="8.5" fill="#A1A1AA">In progress</text>
+    <circle cx="172" cy="6" r="5" fill="#3F3F46" opacity="0.8"/>
+    <text x="182" y="10" font-family="monospace" font-size="8.5" fill="#A1A1AA">Planned</text>
+  </g>
+
+  <!-- ── COLUMN HEADERS ── -->
+  <text x="28" y="66" font-family="monospace" font-size="9" fill="#71717A" font-weight="600">FEATURE</text>
+  <text x="310" y="66" font-family="monospace" font-size="9" fill="#71717A" font-weight="600">WHAT IT DOES</text>
+  <text x="650" y="66" font-family="monospace" font-size="9" fill="#71717A" font-weight="600">STATUS</text>
+  <line x1="20" y1="72" x2="800" y2="72" stroke="#3F3F46" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- ─── ROW HELPER: each row at y=76 + n*56 ─── -->
+
+  <!-- Row 1: Blind Profiles -->
+  <rect x="20" y="76" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.5"/>
+  <!-- eye/slash icon -->
+  <g transform="translate(38, 92)">
+    <ellipse cx="10" cy="8" rx="10" ry="6" fill="none" stroke="#8B5CF6" stroke-width="1.5"/>
+    <circle cx="10" cy="8" r="3" fill="#8B5CF6" opacity="0.7"/>
+    <line x1="2" y1="2" x2="18" y2="14" stroke="#EC4899" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <text x="68" y="98" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#C4B5FD">Blind Profiles</text>
+  <text x="68" y="114" font-family="monospace" font-size="8" fill="#71717A">Zero image fields · handle + tagline + tags</text>
+
+  <rect x="308" y="76" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="324" y="95" font-family="monospace" font-size="8.5" fill="#A1A1AA">Profile has no photo field at schema level. Firestore rules</text>
+  <text x="324" y="108" font-family="monospace" font-size="8.5" fill="#A1A1AA">reject writes with image data. You judge by words alone.</text>
+
+  <circle cx="666" cy="100" r="6" fill="#8B5CF6" opacity="0.9"/>
+  <text x="680" y="104" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="600">Shipped</text>
+
+  <!-- Row 2: One Match Rule -->
+  <rect x="20" y="132" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.5"/>
+  <g transform="translate(38, 144)">
+    <rect x="0" y="0" width="16" height="22" rx="3" fill="none" stroke="#8B5CF6" stroke-width="1.5"/>
+    <rect x="3" y="8" width="10" height="1.5" rx="0.75" fill="#8B5CF6" opacity="0.7"/>
+    <circle cx="8" cy="5" r="2.5" fill="#EC4899" opacity="0.8"/>
+  </g>
+  <text x="68" y="154" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#C4B5FD">One Match Rule</text>
+  <text x="68" y="170" font-family="monospace" font-size="8" fill="#71717A">currentMatchId locks both users in</text>
+
+  <rect x="308" y="132" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="324" y="151" font-family="monospace" font-size="8.5" fill="#A1A1AA">Both users get currentMatchId set atomically via Firestore</text>
+  <text x="324" y="164" font-family="monospace" font-size="8.5" fill="#A1A1AA">transaction. Swipe deck is hidden until they unmatch.</text>
+
+  <circle cx="666" cy="156" r="6" fill="#8B5CF6" opacity="0.9"/>
+  <text x="680" y="160" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="600">Shipped</text>
+
+  <!-- Row 3: Physics Swipe Deck -->
+  <rect x="20" y="188" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.5"/>
+  <g transform="translate(38, 198)">
+    <rect x="0" y="4" width="22" height="22" rx="4" fill="none" stroke="#71717A" stroke-width="1" transform="rotate(-6, 11, 15)"/>
+    <rect x="3" y="2" width="22" height="22" rx="4" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="14" y="17" text-anchor="middle" font-family="monospace" font-size="7" fill="#8B5CF6">♥</text>
+  </g>
+  <text x="68" y="210" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#C4B5FD">Physics Swipe Deck</text>
+  <text x="68" y="226" font-family="monospace" font-size="8" fill="#71717A">Framer Motion drag + spring + LIKE/NOPE overlay</text>
+
+  <rect x="308" y="188" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="324" y="207" font-family="monospace" font-size="8.5" fill="#A1A1AA">useMotionValue + useTransform drive rotation, opacity,</text>
+  <text x="324" y="220" font-family="monospace" font-size="8.5" fill="#A1A1AA">and overlays. AnimatePresence handles card exit.</text>
+
+  <circle cx="666" cy="212" r="6" fill="#8B5CF6" opacity="0.9"/>
+  <text x="680" y="216" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="600">Shipped</text>
+
+  <!-- Row 4: Real-time Chat -->
+  <rect x="20" y="244" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.5"/>
+  <g transform="translate(38, 254)">
+    <rect x="0" y="0" width="22" height="18" rx="4" fill="none" stroke="#EC4899" stroke-width="1.5"/>
+    <polygon points="4,18 4,24 10,18" fill="#EC4899" opacity="0.7"/>
+    <rect x="4" y="5" width="14" height="2" rx="1" fill="#EC4899" opacity="0.5"/>
+    <rect x="4" y="10" width="10" height="2" rx="1" fill="#EC4899" opacity="0.35"/>
+  </g>
+  <text x="68" y="266" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#C4B5FD">Real-time Chat</text>
+  <text x="68" y="282" font-family="monospace" font-size="8" fill="#71717A">Firestore onSnapshot · auto-scroll · 500-char limit</text>
+
+  <rect x="308" y="244" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="324" y="263" font-family="monospace" font-size="8.5" fill="#A1A1AA">Messages stream live under matches/{matchId}/messages.</text>
+  <text x="324" y="276" font-family="monospace" font-size="8.5" fill="#A1A1AA">useRef auto-scroll. Char counter enforced on input.</text>
+
+  <circle cx="666" cy="268" r="6" fill="#8B5CF6" opacity="0.9"/>
+  <text x="680" y="272" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="600">Shipped</text>
+
+  <!-- Row 5: 6-Step Onboarding -->
+  <rect x="20" y="300" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.5"/>
+  <g transform="translate(38, 310)">
+    <circle cx="4" cy="14" r="4" fill="#8B5CF6" opacity="0.8"/>
+    <circle cx="14" cy="14" r="4" fill="#8B5CF6" opacity="0.5"/>
+    <circle cx="24" cy="14" r="4" fill="#3F3F46" opacity="0.8"/>
+    <line x1="8" y1="14" x2="10" y2="14" stroke="#8B5CF6" stroke-width="1.5" opacity="0.6"/>
+    <line x1="18" y1="14" x2="20" y2="14" stroke="#3F3F46" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <text x="68" y="322" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#C4B5FD">6-Step Onboarding</text>
+  <text x="68" y="338" font-family="monospace" font-size="8" fill="#71717A">Handle → Bio → Tagline → Tags → Prompts → Review</text>
+
+  <rect x="308" y="300" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.8" stroke-opacity="0.6"/>
+  <text x="324" y="319" font-family="monospace" font-size="8.5" fill="#A1A1AA">Each step is a discrete JSX component. State collected</text>
+  <text x="324" y="332" font-family="monospace" font-size="8.5" fill="#A1A1AA">in parent Onboarding.jsx, single write on ReviewStep.</text>
+
+  <circle cx="666" cy="324" r="6" fill="#8B5CF6" opacity="0.9"/>
+  <text x="680" y="328" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="600">Shipped</text>
+
+  <!-- Row 6: Push Notifications -->
+  <rect x="20" y="356" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#F472B6" stroke-width="1" stroke-opacity="0.4"/>
+  <g transform="translate(38, 366)">
+    <path d="M11,0 C7,0 4,3 4,7 L4,14 L1,17 L21,17 L18,14 L18,7 C18,3 15,0 11,0 Z" fill="none" stroke="#F472B6" stroke-width="1.5" stroke-opacity="0.7"/>
+    <circle cx="11" cy="21" r="2.5" fill="#F472B6" opacity="0.6"/>
+    <circle cx="16" cy="2" r="3" fill="#EC4899" opacity="0.8"/>
+  </g>
+  <text x="68" y="378" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#A1A1AA">Push Notifications</text>
+  <text x="68" y="394" font-family="monospace" font-size="8" fill="#71717A">Match alert on new message</text>
+
+  <rect x="308" y="356" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="324" y="375" font-family="monospace" font-size="8.5" fill="#71717A">Firebase Cloud Messaging integration. Will trigger</text>
+  <text x="324" y="388" font-family="monospace" font-size="8.5" fill="#71717A">on new match and incoming message while backgrounded.</text>
+
+  <circle cx="666" cy="380" r="6" fill="#F472B6" opacity="0.6"/>
+  <text x="680" y="384" font-family="monospace" font-size="9" fill="#FBCFE8" font-weight="600">In progress</text>
+
+  <!-- Row 7: Report / Block -->
+  <rect x="20" y="412" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#3F3F46" stroke-width="1" stroke-opacity="0.5"/>
+  <g transform="translate(38, 422)">
+    <circle cx="11" cy="11" r="10" fill="none" stroke="#3F3F46" stroke-width="1.5"/>
+    <line x1="11" y1="5" x2="11" y2="13" stroke="#71717A" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="11" cy="17" r="1.5" fill="#71717A"/>
+  </g>
+  <text x="68" y="434" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#71717A">Report / Block</text>
+  <text x="68" y="450" font-family="monospace" font-size="8" fill="#52525B">Trust &amp; safety layer</text>
+
+  <rect x="308" y="412" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.6" stroke-opacity="0.4"/>
+  <text x="324" y="431" font-family="monospace" font-size="8.5" fill="#52525B">Write-only reports collection with Cloud Function cleanup.</text>
+  <text x="324" y="444" font-family="monospace" font-size="8.5" fill="#52525B">Auto-hide flagged profiles from discovery queue.</text>
+
+  <circle cx="666" cy="436" r="6" fill="#3F3F46" opacity="0.8"/>
+  <text x="680" y="440" font-family="monospace" font-size="9" fill="#71717A" font-weight="600">Planned</text>
+
+  <!-- Row 8: Profile Editing -->
+  <rect x="20" y="468" width="280" height="48" rx="7" fill="#1A1A2E" stroke="#3F3F46" stroke-width="1" stroke-opacity="0.5"/>
+  <g transform="translate(38, 480)">
+    <rect x="0" y="0" width="18" height="18" rx="3" fill="none" stroke="#3F3F46" stroke-width="1.5"/>
+    <path d="M14,3 L17,6 L8,15 L5,15 L5,12 Z" fill="#71717A" opacity="0.6"/>
+  </g>
+  <text x="68" y="490" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#71717A">Profile Editing</text>
+  <text x="68" y="506" font-family="monospace" font-size="8" fill="#52525B">Post-onboarding profile update</text>
+
+  <rect x="308" y="468" width="330" height="48" rx="7" fill="#0F0A14" stroke="#3F3F46" stroke-width="0.6" stroke-opacity="0.4"/>
+  <text x="324" y="487" font-family="monospace" font-size="8.5" fill="#52525B">Edit handle, tagline, prompts and tags without</text>
+  <text x="324" y="500" font-family="monospace" font-size="8.5" fill="#52525B">re-triggering full onboarding flow.</text>
+
+  <circle cx="666" cy="492" r="6" fill="#3F3F46" opacity="0.8"/>
+  <text x="680" y="496" font-family="monospace" font-size="9" fill="#71717A" font-weight="600">Planned</text>
+</svg>

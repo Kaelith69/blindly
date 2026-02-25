@@ -1,179 +1,142 @@
 <div align="center">
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280">
-  <defs>
-    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d0d0d"/>
-      <stop offset="50%" style="stop-color:#120b1e"/>
-      <stop offset="100%" style="stop-color:#0a0a14"/>
-    </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#7C3AED"/>
-      <stop offset="100%" style="stop-color:#06B6D4"/>
-    </linearGradient>
-    <radialGradient id="orb1" cx="20%" cy="40%" r="35%">
-      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.18"/>
-      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="orb2" cx="80%" cy="60%" r="30%">
-      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.12"/>
-      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0"/>
-    </radialGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-  <rect width="900" height="280" fill="url(#heroBg)" rx="16"/>
-  <rect width="900" height="280" fill="url(#orb1)" rx="16"/>
-  <rect width="900" height="280" fill="url(#orb2)" rx="16"/>
-  <g opacity="0.04" stroke="#ffffff" stroke-width="0.5">
-    <line x1="0" y1="70" x2="900" y2="70"/><line x1="0" y1="140" x2="900" y2="140"/>
-    <line x1="0" y1="210" x2="900" y2="210"/><line x1="180" y1="0" x2="180" y2="280"/>
-    <line x1="360" y1="0" x2="360" y2="280"/><line x1="540" y1="0" x2="540" y2="280"/>
-    <line x1="720" y1="0" x2="720" y2="280"/>
-  </g>
-  <g transform="translate(75, 100)" filter="url(#glow)">
-    <ellipse cx="45" cy="40" rx="36" ry="22" fill="none" stroke="url(#accentGrad)" stroke-width="3" opacity="0.9"/>
-    <circle cx="45" cy="40" r="10" fill="url(#accentGrad)" opacity="0.85"/>
-    <line x1="15" y1="10" x2="75" y2="70" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-    <circle cx="8" cy="30" r="2" fill="#06B6D4" opacity="0.7"/>
-    <circle cx="82" cy="50" r="2" fill="#06B6D4" opacity="0.7"/>
-    <circle cx="45" cy="8" r="1.5" fill="#7C3AED" opacity="0.6"/>
-  </g>
-  <g transform="translate(790, 100)" filter="url(#glow)">
-    <path d="M30,18 C30,10 22,5 15,10 C8,5 0,10 0,18 C0,28 15,42 30,50 C45,42 60,28 60,18 C60,10 52,5 45,10 C38,5 30,10 30,18 Z" fill="url(#accentGrad)" opacity="0.2"/>
-    <path d="M30,18 C30,10 22,5 15,10 C8,5 0,10 0,18 C0,28 15,42 30,50 C45,42 60,28 60,18 C60,10 52,5 45,10 C38,5 30,10 30,18 Z" fill="none" stroke="url(#accentGrad)" stroke-width="2.5" opacity="0.8"/>
-  </g>
-  <text x="450" y="108" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="68" font-weight="800" letter-spacing="-2" fill="url(#accentGrad)" filter="url(#glow)">blindly</text>
-  <text x="450" y="150" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="300" letter-spacing="1" fill="#e2e8f0" opacity="0.85">Date with words, not looks.</text>
-  <text x="450" y="183" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="400" letter-spacing="0.5" fill="#94a3b8" opacity="0.75">No photos · No filters · One match · Real conversation</text>
-  <rect x="310" y="200" width="280" height="2" rx="1" fill="url(#accentGrad)" opacity="0.6"/>
-  <g transform="translate(220, 218)">
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="#7C3AED" opacity="0.25"/>
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="none" stroke="#7C3AED" stroke-width="1" opacity="0.5"/>
-    <text x="39" y="16" text-anchor="middle" font-family="monospace" font-size="11" fill="#c4b5fd" font-weight="600">React 19</text>
-  </g>
-  <g transform="translate(308, 218)">
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="#06B6D4" opacity="0.15"/>
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="none" stroke="#06B6D4" stroke-width="1" opacity="0.4"/>
-    <text x="39" y="16" text-anchor="middle" font-family="monospace" font-size="11" fill="#67e8f9" font-weight="600">Firebase</text>
-  </g>
-  <g transform="translate(396, 218)">
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="#2563EB" opacity="0.2"/>
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="none" stroke="#2563EB" stroke-width="1" opacity="0.4"/>
-    <text x="39" y="16" text-anchor="middle" font-family="monospace" font-size="11" fill="#93c5fd" font-weight="600">Vite</text>
-  </g>
-  <g transform="translate(484, 218)">
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="#7C3AED" opacity="0.2"/>
-    <rect x="0" y="0" width="78" height="24" rx="12" fill="none" stroke="#7C3AED" stroke-width="1" opacity="0.4"/>
-    <text x="39" y="16" text-anchor="middle" font-family="monospace" font-size="11" fill="#c4b5fd" font-weight="600">Framer</text>
-  </g>
-</svg>
+![blindly hero banner](assets/hero-banner.svg)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-7C3AED?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
-  <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" />
-  <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
-  <img src="https://img.shields.io/badge/license-MIT-10B981?style=for-the-badge" />
-</p>
-<p align="center">
-  <a href="https://kaelith69.github.io/blindly/">
-    <img src="https://img.shields.io/badge/Live_Demo-Checkout_Blindly-7C3AED?style=for-the-badge" />
-  </a>
-  <a href="wiki/Home.md">
-    <img src="https://img.shields.io/badge/Wiki-Read_Docs-2563EB?style=for-the-badge" />
-  </a>
-</p>
+**No photos. No filters. Just words.**
+
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Architecture](#%EF%B8%8F-architecture) • [Roadmap](#-roadmap) • [License](#-license)
 
 </div>
 
 ---
 
-## 🖤 What is Blindly?
+*Dating apps broke the deal when they made appearance the first filter. Blindly flips that — your profile is text only, your match is singular, and the conversation is the whole point. Nothing to scroll past.*
 
-**Blindly** is a text-only, blind dating web app that strips away the superficiality of modern dating. No profile photos. No reels. No status games. Just a handle, a tagline, a set of interest tags, and thoughtful answers to personal prompts.
+**Blindly** is a serverless, text-only blind dating progressive web app built on React 19, Firebase, and Framer Motion. There are no profile photos, no photo uploads, and no image fields anywhere in the data model. Users create a handle, a tagline, pick interest tags from a curated list, and write answers to personal prompts. Discovery is a physics-driven swipe deck. A mutual right-swipe triggers an atomic Firestore transaction that locks both users into a single shared chat. That's the entire product.
 
-The entire experience is built on one principle: **personality before appearance**.
+---
 
-| Principle | Implementation |
+<div align="center">
+
+![version](https://img.shields.io/badge/version-1.0.0-8B5CF6?style=for-the-badge)
+![react](https://img.shields.io/badge/React-19.0.0-EC4899?style=for-the-badge&logo=react&logoColor=white)
+![firebase](https://img.shields.io/badge/Firebase-11.3.0-F472B6?style=for-the-badge&logo=firebase&logoColor=white)
+![vite](https://img.shields.io/badge/Vite-6.1.0-8B5CF6?style=for-the-badge&logo=vite&logoColor=white)
+![framer](https://img.shields.io/badge/Framer_Motion-12.x-EC4899?style=for-the-badge&logo=framer&logoColor=white)
+![platform](https://img.shields.io/badge/platform-Web-F472B6?style=for-the-badge)
+![license](https://img.shields.io/badge/license-MIT-8B5CF6?style=for-the-badge)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-kaelith69.github.io%2Fblindly-EC4899?style=for-the-badge)](https://kaelith69.github.io/blindly/)
+
+</div>
+
+---
+
+## 🗂 System Overview
+
+Blindly is a single-page React application with no custom backend. Firebase handles every server-side concern: authentication (Email/Password and Phone OTP), real-time data via Firestore `onSnapshot`, and authorization via server-enforced security rules. The entire app state flows through two React contexts — `AuthContext` (identity + live userDoc sync) and `ThemeContext` (AMOLED dark / light toggle). The match engine runs client-side inside a Firestore transaction.
+
+```
+blindly/
+├── public/                     # Static assets (SVGs)
+├── assets/                     # README diagram assets
+├── src/
+│   ├── components/
+│   │   ├── onboarding/         # 6 discrete step components
+│   │   ├── SwipeDeck.jsx       # Physics swipe + match transaction
+│   │   ├── ProfileCard.jsx     # Text-only profile display
+│   │   ├── ChatView.jsx        # Real-time message stream
+│   │   ├── ProfileView.jsx     # Full profile modal
+│   │   ├── BottomNav.jsx       # Tab navigation
+│   │   ├── AuthForm.jsx        # Login / sign-up form
+│   │   ├── OnboardingGate.jsx  # Redirect if profile incomplete
+│   │   └── ProtectedRoute.jsx  # Redirect if unauthenticated
+│   ├── context/
+│   │   ├── AuthContext.jsx     # onAuthStateChanged + onSnapshot
+│   │   └── ThemeContext.jsx    # Dark / light mode
+│   ├── layouts/
+│   │   └── AppLayout.jsx       # Shared chrome for app routes
+│   ├── pages/
+│   │   ├── Home.jsx            # Landing / marketing
+│   │   ├── Auth.jsx            # Auth page wrapper
+│   │   ├── Onboarding.jsx      # 6-step wizard coordinator
+│   │   └── Dashboard.jsx       # Main app: swipe deck + chat
+│   ├── App.jsx                 # Router definition + guards
+│   ├── main.jsx                # React root mount
+│   ├── constants.js            # AVAILABLE_TAGS, AVAILABLE_PROMPTS
+│   ├── firebase.js             # SDK init + db/auth exports
+│   └── index.css               # Design system, CSS custom properties
+├── scripts/
+│   └── seed-profiles.mjs       # Dev utility: populate test profiles
+├── firestore.rules             # Server-side authorization
+├── firebase.json               # Firebase project config
+├── vite.config.js
+└── package.json
+```
+
+See the [architecture diagram](#%EF%B8%8F-architecture) for the full system view.
+
+---
+
+## ✨ Features
+
+| Feature | What it actually does |
 |---|---|
-| **No Photos** | Profiles contain zero image fields. Only text. |
-| **One Match at a Time** | `currentMatchId` locks both users into a focused conversation. |
-| **Blind Discovery** | You judge a person by their words alone. |
-| **AMOLED-First UI** | Pure `#000000` background with a violet-glow accent palette. |
+| 🙈 **Blind Profiles** | No `photoURL` field exists at schema level. Firestore rules reject image writes. You see handle, tagline, tags, and prompt answers — nothing else. |
+| 💜 **One Match Rule** | `currentMatchId` on both user documents is set atomically in a single Firestore `runTransaction`. You cannot swipe while matched. |
+| 🃏 **Physics Swipe Deck** | `useMotionValue` drives card rotation and LIKE/NOPE overlay opacity in real time. `AnimatePresence` handles the spring-exit on swipe completion. |
+| 💬 **Real-time Chat** | `onSnapshot` on `matches/{matchId}/messages` streams messages live. Auto-scroll via `useRef`. 500-character hard limit enforced on input. |
+| 🔐 **Dual Auth** | Firebase Authentication — Email/Password for standard sign-up, Phone OTP for passwordless. Short-lived JWTs refreshed automatically. |
+| 🌙 **AMOLED Theme** | Pure `#000000` dark mode via CSS custom properties. `ThemeContext` toggles the `data-theme` attribute on the root element. |
+| 🧭 **6-Step Onboarding** | Discrete components for Handle → BasicInfo → Tagline → Tags → Prompts → Review. State collected in `Onboarding.jsx`, written to Firestore in a single `setDoc` on the final step. |
+| 🔒 **Firestore Rules** | Profile writes isolated per UID. Swipe subcollection inaccessible to other users. Auth token required for all reads/writes. |
+| ♿ **Accessibility** | All interactive elements carry `aria-label` / `title`. Swipe actions have keyboard-accessible Pass/Like buttons. WCAG AA contrast in both themes. |
 
 ---
 
-## ✨ Feature Overview
+## 🎛 Capability Visualization
 
-| Feature | Description |
-|---|---|
-| 🙈 **Blind Profiles** | Text-only: handle, tagline, interest tags (20 options), up to 5 personal prompts |
-| 💜 **One Match Rule** | Both users are locked into a single active match — no parallel conversations |
-| 🔥 **Physics Swipe Deck** | Framer Motion drag-to-swipe with LIKE / NOPE overlays |
-| 💬 **Real-time Chat** | Firestore `onSnapshot` streaming, auto-scrolling, 500-char limit per message |
-| 🔐 **Auth** | Firebase Authentication — Email/Password & Phone/OTP |
-| 🌙 **AMOLED Theme** | Pure black (`#000000`) dark mode + light mode toggle |
-| 🧭 **6-Step Onboarding** | Handle → Basic Info → Tagline → Tags → Prompts → Review & Submit |
-| 🔒 **Firestore Rules** | Server-side rules enforce write isolation per user |
+![blindly capabilities](assets/capabilities.svg)
 
 ---
 
-## 🏗 Architecture
+## 🏗️ Architecture
 
-Blindly is a **serverless-first** React SPA. There is no custom backend server — Firestore's real-time capabilities and security rules handle all data access control and synchronization.
+![blindly architecture](assets/architecture.svg)
 
-```
-Browser (React SPA)
-  ├── Pages: Home / Auth / Onboarding / Dashboard
-  ├── Components: SwipeDeck · ProfileCard · ChatView · BottomNav
-  ├── Context: AuthContext (userDoc sync) · ThemeContext
-  └── Firebase SDK
-        ├── Firebase Auth  → Identity (Email + Phone/OTP)
-        ├── Firestore      → Data (profiles, swipes, matches, messages)
-        └── Security Rules → Authorization (server-enforced)
-```
+Blindly has three logical layers. The **browser layer** is a React 19 SPA bundled by Vite 6, using React Router DOM 7 for client-side routing. Two route guards (`ProtectedRoute`, `OnboardingGate`) sit at the router level — an unauthenticated user never reaches the app shell, and a user with an incomplete profile can't skip onboarding by typing a URL. The **Firebase SDK bridge** is the only communication channel between the browser and the backend; there is no Express server, no REST API, no GraphQL layer.
 
-**Key architectural patterns:**
-- `onAuthStateChanged` + `onSnapshot` in `AuthContext` keep the entire app reactive to user state.
-- The match engine runs **client-side using a Firestore transaction** — ensuring atomicity when two users mutually like each other.
-- `ProtectedRoute` and `OnboardingGate` enforce the authentication and onboarding flow at the router level.
+The **Firebase platform layer** provides three services. Firebase Auth handles identity: it issues short-lived JWTs that the Firestore SDK attaches to every request. Cloud Firestore handles data: three collections (`users`, `matches`, and the `messages` sub-collection) store all app state. Security Rules act as the authorization layer — the client application never runs privileged code; everything it can and can't do is enforced server-side by Firestore before any data is touched. This means the frontend code is inherently limited: it can't escalate privileges by modifying the SDK.
+
+The match engine runs inside `SwipeDeck.jsx`. When User A swipes right, it writes a swipe document and then reads whether User B already swiped right on A. If yes, it calls `runTransaction` — which atomically creates the match document and updates `currentMatchId` on both user documents. Both users' `onSnapshot` listeners fire within milliseconds, and `AuthContext` distributes the new state throughout the component tree without any manual refetch.
 
 ---
 
-## 🔄 Data Flow — Match Engine
+## 🔄 Data Flow
+
+![blindly data flow](assets/data-flow.svg)
+
+The primary match-engine path:
 
 ```
-User A swipes right
-  → Write: users/A/swipes/B { direction: "right" }
-  → Read:  users/B/swipes/A  ← does B already like A?
-      YES → runTransaction:
-              · create matches/{A_B} { users: [A, B], status: "active" }
-              · update users/A { currentMatchId: "A_B" }
-              · update users/B { currentMatchId: "A_B" }
-      → onSnapshot fires in AuthContext for both users
-      → Dashboard detects currentMatchId → shows match overlay
-      → Both users can now chat in matches/{A_B}/messages
+User A swipes right on User B
+  │
+  ├─ setDoc(users/A/swipes/B, { direction: "right" })
+  │
+  ├─ getDoc(users/B/swipes/A) ──── direction != "right" ──▶  next card
+  │                                        │
+  │                               direction == "right"
+  │                                        │
+  └─ runTransaction() ─────────────────────┘
+       ├─ create  matches/{A_B}  { users:[A,B], status:"active" }
+       ├─ update  users/A        { currentMatchId: "A_B" }
+       └─ update  users/B        { currentMatchId: "A_B" }
+             │
+             └─ onSnapshot fires in AuthContext (both users)
+                   │
+                   └─ Dashboard renders match overlay
+                         │
+                         └─ ChatView streams matches/{A_B}/messages
 ```
-
----
-
-## 🛠 Technology Stack
-
-| Layer | Technology | Version | Purpose |
-|---|---|---|---|
-| **UI Framework** | React | 19.0.0 | Component model, hooks-based state |
-| **Build Tool** | Vite | 6.1.0 | Fast ESM bundler, HMR dev server |
-| **Routing** | React Router DOM | 7.1.0 | Client-side routing with protected routes |
-| **Animation** | Framer Motion | 12.x | Drag physics, spring animations |
-| **Icons** | Lucide React | 0.474.0 | SVG icon library |
-| **Auth** | Firebase Auth | 11.3.0 | Email + Phone/OTP authentication |
-| **Database** | Cloud Firestore | 11.3.0 | Real-time NoSQL, offline support |
-| **Hosting** | GitHub Pages | — | Static CDN via `gh-pages` |
-| **Styling** | Native CSS | — | Tailwind-free custom design system |
 
 ---
 
@@ -181,42 +144,71 @@ User A swipes right
 
 ### Prerequisites
 
-- Node.js ≥ 18
-- npm ≥ 9
-- A [Firebase project](https://console.firebase.google.com/) with **Authentication** and **Firestore** enabled
+| Requirement | Version | Why |
+|---|---|---|
+| Node.js | ≥ 18 | ESM support required by Vite 6 |
+| npm | ≥ 9 | Workspace-aware lockfile format |
+| Firebase project | any | Auth + Firestore must be enabled |
+| Firebase CLI | ≥ 13 | For deploying Firestore security rules |
+
+You need a Firebase project with **Authentication** (Email/Password and Phone providers enabled) and **Cloud Firestore** (native mode). Storage does not need to be enabled — Blindly doesn't use it.
 
 ### Steps
 
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Kaelith69/blindly.git
+   cd blindly
+   ```
+
+2. **Install dependencies** — Vite, React, Firebase, Framer Motion, React Router, Lucide icons:
+   ```bash
+   npm install
+   ```
+
+3. **Configure Firebase** — Open `src/firebase.js` and replace the `firebaseConfig` object with your project's credentials from the [Firebase Console](https://console.firebase.google.com/) → Project Settings → Your Apps:
+   ```js
+   const firebaseConfig = {
+     apiKey: "YOUR_API_KEY",
+     authDomain: "YOUR_PROJECT.firebaseapp.com",
+     projectId: "YOUR_PROJECT_ID",
+     storageBucket: "YOUR_PROJECT.firebasestorage.app",
+     messagingSenderId: "YOUR_SENDER_ID",
+     appId: "YOUR_APP_ID"
+   }
+   ```
+
+4. **Deploy Firestore security rules** — The rules in `firestore.rules` enforce write isolation per user. Deploy them before testing so your dev environment matches production:
+   ```bash
+   firebase deploy --only firestore:rules
+   ```
+
+5. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+   Vite starts at `http://localhost:5173` with HMR.
+
+### Seed Test Profiles (Optional)
+
+The swipe deck needs other user profiles to show you. A seed script is included:
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Kaelith69/blindly.git
-cd blindly
-
-# 2. Install dependencies
-npm install
-
-# 3. Configure Firebase
-#    Edit src/firebase.js with your Firebase project credentials
-
-# 4. Deploy Firestore security rules
-firebase deploy --only firestore:rules
-
-# 5. Start development server
-npm run dev
+node scripts/seed-profiles.mjs
 ```
+This writes synthetic profiles to your Firestore `users` collection. Don't run it against production.
 
-### Build & Deploy
+---
 
-```bash
-# Build for production
-npm run build
+## 🖥 Usage
 
-# Preview production build locally
-npm run preview
+1. **Sign up** at `/auth` — choose Email/Password or Phone OTP.
+2. **Complete onboarding** — you'll be redirected to `/onboarding`. Work through all 6 steps. Nothing is written to Firestore until you hit submit on the final Review step.
+3. **Discover** — swipe right (or tap Like) to express interest. Swipe left (or tap Pass) to skip. Candidates who've already been swiped on don't reappear.
+4. **Match** — if the other person has already swiped right on you, a match overlay appears immediately. Both users are now locked into this conversation.
+5. **Chat** — messages appear in real time on both ends. 500-character limit per message.
+6. **Unmatch** — tap the unmatch button in the chat header to clear the match and return to discovery.
 
-# Deploy to GitHub Pages
-npm run deploy
-```
+> **Pro tip:** If the swipe deck shows "No more profiles," it means either everyone in your Firestore has been swiped or there are no other `onboardingCompleted: true` users. Run the seed script (`node scripts/seed-profiles.mjs`) against your dev project to repopulate.
 
 ---
 
@@ -224,130 +216,147 @@ npm run deploy
 
 ```
 blindly/
-├── public/                     # Static assets
+├── 🌐 public/
+│   ├── hero-banner.svg          # SVG displayed in browser tab / OG
+│   └── sparkle-icon.svg         # Favicon
+│
+├── 🖼 assets/                   # README diagram SVGs (not served)
 │   ├── hero-banner.svg
-│   └── sparkle-icon.svg
-├── src/
+│   ├── architecture.svg
+│   ├── data-flow.svg
+│   ├── capabilities.svg
+│   └── stats.svg
+│
+├── 📦 src/
 │   ├── components/
 │   │   ├── onboarding/
-│   │   │   ├── HandleStep.jsx
-│   │   │   ├── BasicInfoStep.jsx
-│   │   │   ├── TaglineStep.jsx
-│   │   │   ├── TagsStep.jsx
-│   │   │   ├── PromptsStep.jsx
-│   │   │   └── ReviewStep.jsx
-│   │   ├── SwipeDeck.jsx
-│   │   ├── ProfileCard.jsx
-│   │   ├── ChatView.jsx
-│   │   ├── ProfileView.jsx
-│   │   ├── BottomNav.jsx
-│   │   ├── AuthForm.jsx
-│   │   ├── OnboardingGate.jsx
-│   │   └── ProtectedRoute.jsx
+│   │   │   ├── HandleStep.jsx       # Step 1: pick a unique handle
+│   │   │   ├── BasicInfoStep.jsx    # Step 2: birth year, gender, city
+│   │   │   ├── TaglineStep.jsx      # Step 3: one-line profile tagline
+│   │   │   ├── TagsStep.jsx         # Step 4: pick up to N interest tags
+│   │   │   ├── PromptsStep.jsx      # Step 5: answer personal prompts
+│   │   │   └── ReviewStep.jsx       # Step 6: review + single Firestore write
+│   │   ├── SwipeDeck.jsx            # Framer Motion swipe + match transaction
+│   │   ├── ProfileCard.jsx          # Text-only profile card component
+│   │   ├── ChatView.jsx             # Real-time message stream + input
+│   │   ├── ProfileView.jsx          # Full profile modal overlay
+│   │   ├── BottomNav.jsx            # Bottom tab navigation bar
+│   │   ├── AuthForm.jsx             # Combined login / sign-up form
+│   │   ├── OnboardingGate.jsx       # Redirect guard: onboardingCompleted?
+│   │   └── ProtectedRoute.jsx       # Redirect guard: authenticated?
+│   │
 │   ├── context/
-│   │   ├── AuthContext.jsx
-│   │   └── ThemeContext.jsx
+│   │   ├── AuthContext.jsx          # onAuthStateChanged + userDoc onSnapshot
+│   │   └── ThemeContext.jsx         # data-theme attribute toggle
+│   │
 │   ├── layouts/
-│   │   └── AppLayout.jsx
+│   │   └── AppLayout.jsx            # Shared header + Outlet for /app/*
+│   │
 │   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Auth.jsx
-│   │   ├── Onboarding.jsx
-│   │   └── Dashboard.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── constants.js
-│   ├── firebase.js
-│   └── index.css
-├── scripts/
-│   └── seed-profiles.mjs
-├── firestore.rules
-├── firebase.json
-├── vite.config.js
+│   │   ├── Home.jsx                 # Public landing page
+│   │   ├── Auth.jsx                 # Login / sign-up page
+│   │   ├── Onboarding.jsx           # 6-step onboarding coordinator
+│   │   └── Dashboard.jsx            # Main app: deck, chat, match overlay
+│   │
+│   ├── App.jsx                      # BrowserRouter + Routes definition
+│   ├── main.jsx                     # ReactDOM.createRoot entry point
+│   ├── constants.js                 # AVAILABLE_TAGS, AVAILABLE_PROMPTS arrays
+│   ├── firebase.js                  # SDK init, exports db and auth
+│   └── index.css                    # All styles via CSS custom properties
+│
+├── ⚙️  scripts/
+│   └── seed-profiles.mjs            # Dev-only: write test user documents
+│
+├── firestore.rules                  # Server-side security rules
+├── firebase.json                    # Firebase CLI project config
+├── vite.config.js                   # Vite + React plugin config
 └── package.json
 ```
 
 ---
 
-## 🔒 Privacy & Security
+## 📊 Performance Stats
 
-- **No photo storage** — The data model has no image fields; personal appearance is never captured.
-- **Firestore rules** enforce that users can only read/write their own profile and swipes.
-- **Match isolation** — Chat messages are stored under `matches/{matchId}/messages`.
-- **One match rule** — The `currentMatchId` field prevents parallel conversations.
-- **Auth tokens** — All Firebase SDK calls use short-lived JWTs refreshed automatically.
-
-See [`wiki/Privacy.md`](wiki/Privacy.md) for the full privacy model.
+![blindly stats](assets/stats.svg)
 
 ---
 
-## ♿ Accessibility
+## 🔒 Privacy
 
-- All interactive buttons carry `aria-label` or `title` attributes.
-- Theme toggle supports both dark (AMOLED) and light modes.
-- Swipe actions have keyboard-accessible button equivalents (Pass / Like buttons below the deck).
-- Color contrast ratios meet WCAG AA in both themes for primary text.
-- Focus management is preserved during tab navigation in the onboarding wizard.
+Blindly collects the minimum data required to function:
+
+- **No photo storage** — The Firestore schema has no image fields. Firebase Storage is not enabled. Appearance is structurally excluded from the system.
+- **No real name** — The profile has a handle, not a legal name.
+- **No precise location** — Approximate city is an optional text field. GPS is never requested.
+- **Swipe history** stays in your own `users/{uid}/swipes/` subcollection. Other users can't read it.
+- **Chat messages** are plain text only. No files, images, or link previews.
+- **Auth tokens** are short-lived JWTs managed by the Firebase SDK. Passwords are hashed by Firebase (bcrypt). Blindly never touches your raw password.
+- **No analytics, no ads, no third-party tracking scripts.**
+
+See [`wiki/Privacy.md`](wiki/Privacy.md) for the full privacy model and known limitations.
 
 ---
 
 ## 🗺 Roadmap
 
-| Status | Feature |
-|---|---|
-| ✅ | Text-only profile creation (6-step onboarding) |
-| ✅ | Swipe deck with Framer Motion physics |
-| ✅ | Mutual match detection via Firestore transaction |
-| ✅ | Real-time chat |
-| ✅ | Unmatch flow |
-| ✅ | Dark / light theme |
-| 🔜 | Cloud Function for symmetric unmatch cleanup |
-| 🔜 | Report / block users |
-| 🔜 | Profile editing post-onboarding |
-| 🔜 | Push notifications on match |
-| 🔜 | Improved candidate filtering (age range, location radius) |
-| 🔜 | Conversation time-boxing (24-hour chat windows) |
+### Core
+- [x] Text-only profile creation (6-step onboarding)
+- [x] Physics swipe deck (Framer Motion)
+- [x] Atomic match detection via Firestore transaction
+- [x] Real-time chat (onSnapshot)
+- [x] Unmatch flow
+- [x] Dark / light theme (AMOLED)
+
+### Trust & Safety
+- [ ] Cloud Function for symmetric unmatch cleanup (delete match doc + both currentMatchIds)
+- [ ] Report / block users (write-only `reports` collection)
+- [ ] Field-level Firestore rules (lock `trustLevel`, `onboardingCompleted`)
+- [ ] Restrict match/message reads to participants only
+
+### Product
+- [ ] Profile editing after onboarding
+- [ ] Push notifications on match and new message (Firebase Cloud Messaging)
+- [ ] Conversation time-boxing (24-hour chat windows)
+- [ ] Candidate filtering (age range, proximity)
+- [ ] Account deletion self-service UI
 
 ---
 
-## 🎨 Design Principles
+## 📦 Packaging
 
-1. **Personality First** — The UI removes visual appearance entirely.
-2. **Intentional Simplicity** — One match, one conversation, one focus.
-3. **AMOLED-First** — Pure black (`#000`) with violet accent used sparingly.
-4. **Physics over Transitions** — Framer Motion spring physics make interactions feel real.
-5. **Serverless by Default** — Firestore security rules handle authorization.
-6. **Zero Noise** — No ads, no engagement hacks.
+```bash
+# Production build (output to dist/)
+npm run build
+
+# Preview the production build locally
+npm run preview
+
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+`npm run deploy` runs `vite build` first (via `predeploy`), then uses `gh-pages` to push `dist/` to the `gh-pages` branch of the repository.
 
 ---
 
-## �� Documentation
+## 🤝 Contributing
 
-Full technical documentation is available in the [`wiki/`](wiki/) directory:
+Fork the repo, create a `feat/*` or `fix/*` branch, and open a PR against `main`. There's no automated test suite — use the manual testing checklist in [`wiki/Contributing.md`](wiki/Contributing.md).
 
-| Document | Description |
-|---|---|
-| [Home](wiki/Home.md) | Project overview and quick navigation |
-| [Architecture](wiki/Architecture.md) | System design, component model, data model |
-| [Installation](wiki/Installation.md) | Full setup guide |
-| [Usage](wiki/Usage.md) | User guide and developer usage |
-| [Privacy](wiki/Privacy.md) | Privacy model and security analysis |
-| [Contributing](wiki/Contributing.md) | How to contribute |
-| [Troubleshooting](wiki/Troubleshooting.md) | Common issues and fixes |
-| [Roadmap](wiki/Roadmap.md) | Planned features |
+---
+
+## 🛡 Security
+
+Found a vulnerability? Open a GitHub Issue with `[Security]` in the title, or contact the maintainer directly. Don't post exploits in public. See [`wiki/Privacy.md`](wiki/Privacy.md) for known limitations in the current security posture.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
-
----
+MIT — see [`LICENSE`](LICENSE).
 
 <div align="center">
 
 Built with 💜 by [Kaelith69](https://github.com/Kaelith69)
-
-*"In a world of noise, be the silence."*
 
 </div>

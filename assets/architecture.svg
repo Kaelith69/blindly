@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" width="820" height="520">
+  <defs>
+    <linearGradient id="arc-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A0A"/>
+      <stop offset="100%" style="stop-color:#0F0A1A"/>
+    </linearGradient>
+    <linearGradient id="arc-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#EC4899"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#8B5CF6" opacity="0.8"/>
+    </marker>
+    <marker id="arr-pink" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#EC4899" opacity="0.8"/>
+    </marker>
+    <marker id="arr-muted" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3F3F46" opacity="0.9"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="520" fill="url(#arc-bg)" rx="14"/>
+
+  <!-- Title -->
+  <text x="410" y="36" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#E4E4F7" letter-spacing="2">SYSTEM ARCHITECTURE</text>
+  <line x1="260" y1="46" x2="560" y2="46" stroke="url(#arc-accent)" stroke-width="1" opacity="0.5"/>
+
+  <!-- ─────────── LAYER: Browser / UI ─────────── -->
+  <rect x="30" y="64" width="760" height="148" rx="10" fill="#8B5CF6" fill-opacity="0.05" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.35"/>
+  <text x="46" y="82" font-family="monospace" font-size="10" fill="#C4B5FD" opacity="0.7" font-weight="600">BROWSER — React SPA (Vite + React 19)</text>
+
+  <!-- Pages row -->
+  <g transform="translate(52, 92)">
+    <!-- Home -->
+    <rect x="0" y="0" width="86" height="52" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.6"/>
+    <text x="43" y="20" text-anchor="middle" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="700">Home</text>
+    <text x="43" y="32" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">Landing /</text>
+    <text x="43" y="43" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">marketing</text>
+    <!-- Auth -->
+    <rect x="98" y="0" width="86" height="52" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.6"/>
+    <text x="141" y="20" text-anchor="middle" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="700">Auth</text>
+    <text x="141" y="32" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">Email / Phone</text>
+    <text x="141" y="43" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">OTP login</text>
+    <!-- Onboarding -->
+    <rect x="196" y="0" width="86" height="52" rx="7" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.6"/>
+    <text x="239" y="20" text-anchor="middle" font-family="monospace" font-size="9" fill="#C4B5FD" font-weight="700">Onboarding</text>
+    <text x="239" y="32" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">6-step wizard</text>
+    <text x="239" y="43" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">profile setup</text>
+    <!-- Dashboard -->
+    <rect x="294" y="0" width="86" height="52" rx="7" fill="#1A1A2E" stroke="#EC4899" stroke-width="1.5" stroke-opacity="0.7"/>
+    <text x="337" y="20" text-anchor="middle" font-family="monospace" font-size="9" fill="#F9A8D4" font-weight="700">Dashboard</text>
+    <text x="337" y="32" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">SwipeDeck +</text>
+    <text x="337" y="43" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">ChatView</text>
+    <!-- Context box -->
+    <rect x="402" y="0" width="120" height="52" rx="7" fill="#1A1A2E" stroke="#F472B6" stroke-width="1" stroke-opacity="0.5"/>
+    <text x="462" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#FBCFE8" font-weight="700">Context Layer</text>
+    <text x="462" y="26" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">AuthContext</text>
+    <text x="462" y="37" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">ThemeContext</text>
+    <text x="462" y="48" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">userDoc sync</text>
+    <!-- Router box -->
+    <rect x="540" y="0" width="120" height="52" rx="7" fill="#1A1A2E" stroke="#3F3F46" stroke-width="1" stroke-opacity="0.8"/>
+    <text x="600" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#A1A1AA" font-weight="700">Router Guards</text>
+    <text x="600" y="26" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">ProtectedRoute</text>
+    <text x="600" y="37" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">OnboardingGate</text>
+    <text x="600" y="48" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">react-router-dom 7</text>
+  </g>
+
+  <!-- ─────────── Firebase SDK Bridge ─────────── -->
+  <rect x="200" y="230" width="420" height="38" rx="8" fill="#8B5CF6" fill-opacity="0.12" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="410" y="244" text-anchor="middle" font-family="monospace" font-size="10" fill="#C4B5FD" font-weight="700">Firebase SDK  ·  firebase@11.3.0</text>
+  <text x="410" y="258" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#8B5CF6" opacity="0.8">Client-side SDK — no custom server process</text>
+
+  <!-- Arrows UI → SDK -->
+  <line x1="410" y1="213" x2="410" y2="230" stroke="#8B5CF6" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)" opacity="0.7"/>
+
+  <!-- ─────────── LAYER: Firebase Platform ─────────── -->
+  <rect x="30" y="288" width="760" height="200" rx="10" fill="#EC4899" fill-opacity="0.04" stroke="#EC4899" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="46" y="306" font-family="monospace" font-size="10" fill="#F9A8D4" opacity="0.7" font-weight="600">FIREBASE PLATFORM — Google Cloud</text>
+
+  <!-- Firebase Auth box -->
+  <rect x="52" y="316" width="160" height="148" rx="8" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="132" y="336" text-anchor="middle" font-family="monospace" font-size="10" fill="#C4B5FD" font-weight="700">Firebase Auth</text>
+  <line x1="72" y1="343" x2="192" y2="343" stroke="#8B5CF6" stroke-width="0.5" opacity="0.4"/>
+  <text x="132" y="358" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">Email / Password</text>
+  <text x="132" y="371" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">Phone + OTP (SMS)</text>
+  <text x="132" y="384" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">JWT auto-refresh</text>
+  <text x="132" y="397" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">onAuthStateChanged</text>
+  <rect x="72" y="408" width="120" height="20" rx="4" fill="#8B5CF6" opacity="0.12"/>
+  <text x="132" y="421" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#C4B5FD">→ AuthContext uid</text>
+  <text x="132" y="450" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#8B5CF6" opacity="0.5">IDENTITY LAYER</text>
+
+  <!-- Cloud Firestore box -->
+  <rect x="240" y="316" width="340" height="148" rx="8" fill="#1A1A2E" stroke="#EC4899" stroke-width="1.5" stroke-opacity="0.7"/>
+  <text x="410" y="336" text-anchor="middle" font-family="monospace" font-size="10" fill="#F9A8D4" font-weight="700">Cloud Firestore</text>
+  <line x1="260" y1="343" x2="560" y2="343" stroke="#EC4899" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Collections inside Firestore -->
+  <rect x="258" y="350" width="88" height="66" rx="5" fill="#0F0A1A" stroke="#8B5CF6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="302" y="364" text-anchor="middle" font-family="monospace" font-size="8" fill="#C4B5FD">users/</text>
+  <text x="302" y="377" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">{uid}/profile</text>
+  <text x="302" y="389" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">{uid}/swipes/</text>
+  <text x="302" y="401" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">currentMatchId</text>
+  <text x="302" y="413" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">onSnapshot</text>
+
+  <rect x="358" y="350" width="88" height="66" rx="5" fill="#0F0A1A" stroke="#EC4899" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="402" y="364" text-anchor="middle" font-family="monospace" font-size="8" fill="#F9A8D4">matches/</text>
+  <text x="402" y="377" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">{matchId}</text>
+  <text x="402" y="389" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">users:[A,B]</text>
+  <text x="402" y="401" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">status: active</text>
+  <text x="402" y="413" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">transaction</text>
+
+  <rect x="458" y="350" width="104" height="66" rx="5" fill="#0F0A1A" stroke="#F472B6" stroke-width="0.8" stroke-opacity="0.5"/>
+  <text x="510" y="364" text-anchor="middle" font-family="monospace" font-size="8" fill="#FBCFE8">messages/</text>
+  <text x="510" y="377" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">matches/{id}/</text>
+  <text x="510" y="389" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">messages/</text>
+  <text x="510" y="401" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">onSnapshot</text>
+  <text x="510" y="413" text-anchor="middle" font-family="monospace" font-size="7" fill="#71717A">500char limit</text>
+
+  <text x="410" y="438" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#EC4899" opacity="0.5">DATA + REALTIME LAYER</text>
+  <text x="410" y="450" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">Security rules enforce read/write isolation per UID</text>
+
+  <!-- Firestore Rules box -->
+  <rect x="608" y="316" width="160" height="148" rx="8" fill="#1A1A2E" stroke="#F472B6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="688" y="336" text-anchor="middle" font-family="monospace" font-size="10" fill="#FBCFE8" font-weight="700">Security Rules</text>
+  <line x1="628" y1="343" x2="748" y2="343" stroke="#F472B6" stroke-width="0.5" opacity="0.4"/>
+  <text x="688" y="358" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">write isolation</text>
+  <text x="688" y="371" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">per UID</text>
+  <text x="688" y="384" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">field locking</text>
+  <text x="688" y="397" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">trustLevel lock</text>
+  <text x="688" y="410" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">match isolation</text>
+  <text x="688" y="450" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#F472B6" opacity="0.5">AUTHZ LAYER</text>
+
+  <!-- Arrows SDK → Firebase services -->
+  <line x1="300" y1="268" x2="132" y2="316" stroke="#8B5CF6" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr)" opacity="0.6"/>
+  <line x1="410" y1="268" x2="410" y2="316" stroke="#EC4899" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-pink)" opacity="0.6"/>
+  <line x1="520" y1="268" x2="688" y2="316" stroke="#F472B6" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-pink)" opacity="0.5"/>
+
+  <!-- Hosting label -->
+  <rect x="292" y="496" width="236" height="18" rx="5" fill="#3F3F46" fill-opacity="0.3"/>
+  <text x="410" y="509" text-anchor="middle" font-family="monospace" font-size="9" fill="#71717A">Hosted on GitHub Pages via gh-pages · kaelith69.github.io/blindly</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" width="820" height="300">
+  <defs>
+    <linearGradient id="st-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A0A"/>
+      <stop offset="100%" style="stop-color:#0F0A1A"/>
+    </linearGradient>
+    <linearGradient id="st-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#EC4899"/>
+    </linearGradient>
+    <linearGradient id="st-bar1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="st-bar2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#EC4899"/>
+      <stop offset="100%" style="stop-color:#F472B6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="820" height="300" fill="url(#st-bg)" rx="14"/>
+
+  <!-- Title -->
+  <text x="410" y="32" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#E4E4F7" letter-spacing="2">PROJECT STATS</text>
+  <line x1="280" y1="42" x2="540" y2="42" stroke="url(#st-accent)" stroke-width="1" opacity="0.5"/>
+
+  <!-- ── ROW 1: 4 big metric cards ── -->
+
+  <!-- Card: Lines of Code -->
+  <rect x="22" y="56" width="178" height="98" rx="10" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="111" y="86" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#8B5CF6">1,714</text>
+  <text x="111" y="106" text-anchor="middle" font-family="monospace" font-size="9" fill="#71717A">lines of source code</text>
+  <text x="111" y="120" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525B">.jsx + .js  (src/)</text>
+  <line x1="42" y1="130" x2="180" y2="130" stroke="#8B5CF6" stroke-width="1" opacity="0.25"/>
+  <text x="111" y="144" text-anchor="middle" font-family="monospace" font-size="8" fill="#A78BFA">21 source files</text>
+
+  <!-- Card: Dependencies -->
+  <rect x="212" y="56" width="178" height="98" rx="10" fill="#1A1A2E" stroke="#EC4899" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="301" y="86" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#EC4899">6</text>
+  <text x="301" y="106" text-anchor="middle" font-family="monospace" font-size="9" fill="#71717A">runtime dependencies</text>
+  <text x="301" y="120" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525B">react · firebase · framer · router</text>
+  <line x1="232" y1="130" x2="370" y2="130" stroke="#EC4899" stroke-width="1" opacity="0.25"/>
+  <text x="301" y="144" text-anchor="middle" font-family="monospace" font-size="8" fill="#F9A8D4">4 devDependencies</text>
+
+  <!-- Card: Auth Methods -->
+  <rect x="402" y="56" width="178" height="98" rx="10" fill="#1A1A2E" stroke="#F472B6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="491" y="86" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#F472B6">2</text>
+  <text x="491" y="106" text-anchor="middle" font-family="monospace" font-size="9" fill="#71717A">auth methods</text>
+  <text x="491" y="120" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525B">Email/Password · Phone OTP</text>
+  <line x1="422" y1="130" x2="560" y2="130" stroke="#F472B6" stroke-width="1" opacity="0.25"/>
+  <text x="491" y="144" text-anchor="middle" font-family="monospace" font-size="8" fill="#FBCFE8">Firebase Auth SDK</text>
+
+  <!-- Card: Onboarding Steps -->
+  <rect x="592" y="56" width="206" height="98" rx="10" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="695" y="86" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="800" fill="#C4B5FD">6</text>
+  <text x="695" y="106" text-anchor="middle" font-family="monospace" font-size="9" fill="#71717A">onboarding steps</text>
+  <text x="695" y="120" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525B">Handle → Review</text>
+  <line x1="612" y1="130" x2="778" y2="130" stroke="#8B5CF6" stroke-width="1" opacity="0.25"/>
+  <text x="695" y="144" text-anchor="middle" font-family="monospace" font-size="8" fill="#A78BFA">single Firestore write on submit</text>
+
+  <!-- ── ROW 2: smaller stat bars ── -->
+
+  <!-- Interest Tags bar -->
+  <text x="22" y="178" font-family="monospace" font-size="9" fill="#A1A1AA" font-weight="600">INTEREST TAGS</text>
+  <text x="798" y="178" text-anchor="end" font-family="monospace" font-size="9" fill="#8B5CF6" font-weight="700">20</text>
+  <rect x="22" y="184" width="776" height="10" rx="5" fill="#1A1A2E"/>
+  <rect x="22" y="184" width="776" height="10" rx="5" fill="url(#st-bar1)" opacity="0.8"/>
+
+  <!-- Prompt options bar -->
+  <text x="22" y="212" font-family="monospace" font-size="9" fill="#A1A1AA" font-weight="600">PROMPT OPTIONS</text>
+  <text x="798" y="212" text-anchor="end" font-family="monospace" font-size="9" fill="#EC4899" font-weight="700">10</text>
+  <rect x="22" y="218" width="776" height="10" rx="5" fill="#1A1A2E"/>
+  <rect x="22" y="218" width="388" height="10" rx="5" fill="url(#st-bar2)" opacity="0.8"/>
+
+  <!-- Max prompts per user bar -->
+  <text x="22" y="246" font-family="monospace" font-size="9" fill="#A1A1AA" font-weight="600">MAX PROMPTS / PROFILE</text>
+  <text x="798" y="246" text-anchor="end" font-family="monospace" font-size="9" fill="#F472B6" font-weight="700">5</text>
+  <rect x="22" y="252" width="776" height="10" rx="5" fill="#1A1A2E"/>
+  <rect x="22" y="252" width="194" height="10" rx="5" fill="#F472B6" opacity="0.7"/>
+
+  <!-- Message char limit bar -->
+  <text x="22" y="280" font-family="monospace" font-size="9" fill="#A1A1AA" font-weight="600">MSG CHAR LIMIT</text>
+  <text x="798" y="280" text-anchor="end" font-family="monospace" font-size="9" fill="#A78BFA" font-weight="700">500</text>
+  <rect x="22" y="286" width="776" height="10" rx="5" fill="#1A1A2E"/>
+  <rect x="22" y="286" width="600" height="10" rx="5" fill="#8B5CF6" opacity="0.55"/>
+</svg>
