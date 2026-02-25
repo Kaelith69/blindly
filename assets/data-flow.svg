@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" width="820" height="480">
+  <defs>
+    <linearGradient id="df-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A0A"/>
+      <stop offset="100%" style="stop-color:#0F0A1A"/>
+    </linearGradient>
+    <linearGradient id="df-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#EC4899"/>
+    </linearGradient>
+    <marker id="df-arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#8B5CF6" opacity="0.9"/>
+    </marker>
+    <marker id="df-arr-pink" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#EC4899" opacity="0.9"/>
+    </marker>
+    <marker id="df-arr-h" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#F472B6" opacity="0.9"/>
+    </marker>
+    <marker id="df-arr-m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#71717A" opacity="0.9"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="480" fill="url(#df-bg)" rx="14"/>
+
+  <!-- Title -->
+  <text x="410" y="34" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#E4E4F7" letter-spacing="2">MATCH ENGINE — DATA FLOW</text>
+  <line x1="240" y1="44" x2="580" y2="44" stroke="url(#df-accent)" stroke-width="1" opacity="0.5"/>
+
+  <!-- STEP boxes — horizontal main path at y=100 -->
+  <!-- Step 1: User A swipes -->
+  <g transform="translate(28, 68)">
+    <rect x="0" y="0" width="120" height="68" rx="9" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="120" height="20" rx="9" fill="#8B5CF6" opacity="0.25"/>
+    <rect x="0" y="12" width="120" height="8" rx="0" fill="#8B5CF6" opacity="0.25"/>
+    <text x="60" y="14" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#C4B5FD" font-weight="700">① SWIPE RIGHT</text>
+    <text x="60" y="32" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">User A drags card</text>
+    <text x="60" y="44" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">SwipeDeck.jsx</text>
+    <text x="60" y="56" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">Framer Motion</text>
+    <text x="60" y="67" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">drag release</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <line x1="148" y1="102" x2="172" y2="102" stroke="#8B5CF6" stroke-width="1.5" marker-end="url(#df-arr)"/>
+
+  <!-- Step 2: Write swipe doc -->
+  <g transform="translate(172, 68)">
+    <rect x="0" y="0" width="120" height="68" rx="9" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="120" height="20" rx="9" fill="#8B5CF6" opacity="0.25"/>
+    <rect x="0" y="12" width="120" height="8" rx="0" fill="#8B5CF6" opacity="0.25"/>
+    <text x="60" y="14" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#C4B5FD" font-weight="700">② WRITE SWIPE</text>
+    <text x="60" y="32" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">setDoc() to</text>
+    <text x="60" y="44" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">users/A/swipes/B</text>
+    <text x="60" y="56" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">direction:"right"</text>
+    <text x="60" y="67" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">Firestore SDK</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <line x1="292" y1="102" x2="316" y2="102" stroke="#8B5CF6" stroke-width="1.5" marker-end="url(#df-arr)"/>
+
+  <!-- Step 3: Mutual check -->
+  <g transform="translate(316, 68)">
+    <rect x="0" y="0" width="130" height="68" rx="9" fill="#1A1A2E" stroke="#F472B6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="20" rx="9" fill="#F472B6" opacity="0.2"/>
+    <rect x="0" y="12" width="130" height="8" rx="0" fill="#F472B6" opacity="0.2"/>
+    <text x="65" y="14" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#FBCFE8" font-weight="700">③ MUTUAL CHECK</text>
+    <text x="65" y="32" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">getDoc()</text>
+    <text x="65" y="44" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">users/B/swipes/A</text>
+    <text x="65" y="56" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">direction == "right"?</text>
+    <text x="65" y="67" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#FBCFE8">← branch point</text>
+  </g>
+
+  <!-- ── NO branch: skip card ── -->
+  <line x1="381" y1="136" x2="381" y2="168" stroke="#3F3F46" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#df-arr-m)"/>
+  <text x="390" y="158" font-family="monospace" font-size="8" fill="#71717A">NO</text>
+  <rect x="316" y="168" width="130" height="40" rx="7" fill="#1A1A2E" stroke="#3F3F46" stroke-width="1" stroke-opacity="0.7"/>
+  <text x="381" y="184" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717A">Next candidate</text>
+  <text x="381" y="198" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">currentIndex++</text>
+
+  <!-- ── YES branch: transaction ── -->
+  <!-- Arrow 3→4 YES -->
+  <line x1="446" y1="102" x2="472" y2="102" stroke="#EC4899" stroke-width="1.5" marker-end="url(#df-arr-pink)"/>
+  <text x="454" y="95" font-family="monospace" font-size="8" fill="#F9A8D4">YES</text>
+
+  <!-- Step 4: Transaction -->
+  <g transform="translate(472, 56)">
+    <rect x="0" y="0" width="140" height="96" rx="9" fill="#1A1A2E" stroke="#EC4899" stroke-width="2"/>
+    <rect x="0" y="0" width="140" height="24" rx="9" fill="#EC4899" opacity="0.22"/>
+    <rect x="0" y="16" width="140" height="8" rx="0" fill="#EC4899" opacity="0.22"/>
+    <text x="70" y="16" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#F9A8D4" font-weight="700">④ TRANSACTION</text>
+    <text x="70" y="36" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">runTransaction()</text>
+    <text x="70" y="50" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">create matches/{A_B}</text>
+    <text x="70" y="63" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">update users/A</text>
+    <text x="70" y="76" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">update users/B</text>
+    <text x="70" y="89" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#EC4899">atomic · no race</text>
+  </g>
+
+  <!-- Arrow 4→5 -->
+  <line x1="612" y1="104" x2="636" y2="104" stroke="#EC4899" stroke-width="1.5" marker-end="url(#df-arr-pink)"/>
+
+  <!-- Step 5: onSnapshot fires -->
+  <g transform="translate(636, 68)">
+    <rect x="0" y="0" width="152" height="68" rx="9" fill="#1A1A2E" stroke="#8B5CF6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="152" height="20" rx="9" fill="#8B5CF6" opacity="0.22"/>
+    <rect x="0" y="12" width="152" height="8" rx="0" fill="#8B5CF6" opacity="0.22"/>
+    <text x="76" y="14" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#C4B5FD" font-weight="700">⑤ SNAPSHOT FIRES</text>
+    <text x="76" y="32" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">onSnapshot() in</text>
+    <text x="76" y="44" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">AuthContext.jsx</text>
+    <text x="76" y="56" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">both A &amp; B notified</text>
+    <text x="76" y="67" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#C4B5FD">real-time push</text>
+  </g>
+
+  <!-- ── LOWER SECTION: After match ── -->
+  <line x1="712" y1="136" x2="712" y2="172" stroke="#8B5CF6" stroke-width="1.5" marker-end="url(#df-arr)"/>
+
+  <!-- Step 6: Dashboard detects match -->
+  <g transform="translate(580, 172)">
+    <rect x="0" y="0" width="264" height="56" rx="9" fill="#1A1A2E" stroke="#EC4899" stroke-width="1.5"/>
+    <rect x="0" y="0" width="264" height="20" rx="9" fill="#EC4899" opacity="0.18"/>
+    <rect x="0" y="12" width="264" height="8" rx="0" fill="#EC4899" opacity="0.18"/>
+    <text x="132" y="14" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#F9A8D4" font-weight="700">⑥ MATCH OVERLAY — Dashboard.jsx</text>
+    <text x="132" y="32" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">currentMatchId detected → match modal shown</text>
+    <text x="132" y="46" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">Framer Motion AnimatePresence entrance animation</text>
+  </g>
+
+  <!-- Arrow 6→7 -->
+  <line x1="712" y1="228" x2="712" y2="256" stroke="#F472B6" stroke-width="1.5" marker-end="url(#df-arr-h)"/>
+
+  <!-- Step 7: Real-time chat -->
+  <g transform="translate(580, 256)">
+    <rect x="0" y="0" width="264" height="68" rx="9" fill="#1A1A2E" stroke="#F472B6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="264" height="20" rx="9" fill="#F472B6" opacity="0.16"/>
+    <rect x="0" y="12" width="264" height="8" rx="0" fill="#F472B6" opacity="0.16"/>
+    <text x="132" y="14" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#FBCFE8" font-weight="700">⑦ REAL-TIME CHAT — ChatView.jsx</text>
+    <text x="132" y="32" text-anchor="middle" font-family="monospace" font-size="8" fill="#A1A1AA">onSnapshot on matches/{id}/messages</text>
+    <text x="132" y="46" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">addDoc() per message · 500-char limit</text>
+    <text x="132" y="58" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">auto-scroll ref · createdAt timestamp ordering</text>
+    <text x="132" y="67" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#FBCFE8">messages persist until unmatch</text>
+  </g>
+
+  <!-- UNMATCH side flow -->
+  <line x1="712" y1="324" x2="712" y2="358" stroke="#3F3F46" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#df-arr-m)"/>
+  <g transform="translate(580, 358)">
+    <rect x="0" y="0" width="264" height="48" rx="9" fill="#1A1A2E" stroke="#3F3F46" stroke-width="1" stroke-opacity="0.7"/>
+    <text x="132" y="18" text-anchor="middle" font-family="monospace" font-size="8.5" fill="#A1A1AA" font-weight="700">⑧ UNMATCH — Dashboard.jsx</text>
+    <text x="132" y="34" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">delete matches doc · clear currentMatchId both users</text>
+    <text x="132" y="46" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#71717A">users re-enter discovery · swipe deck reloads</text>
+  </g>
+
+  <!-- Onboarding flow on left side -->
+  <g transform="translate(28, 172)">
+    <rect x="0" y="0" width="530" height="30" rx="7" fill="#8B5CF6" fill-opacity="0.08" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="265" y="19" text-anchor="middle" font-family="monospace" font-size="9" fill="#8B5CF6" opacity="0.7" font-weight="600">ONBOARDING FLOW  →  Handle → BasicInfo → Tagline → Tags → Prompts → Review → Firestore write</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(28, 430)">
+    <rect x="0" y="0" width="10" height="10" rx="2" fill="#8B5CF6" opacity="0.8"/>
+    <text x="16" y="9" font-family="monospace" font-size="8" fill="#A1A1AA">Firestore write</text>
+    <rect x="110" y="0" width="10" height="10" rx="2" fill="#EC4899" opacity="0.8"/>
+    <text x="126" y="9" font-family="monospace" font-size="8" fill="#A1A1AA">Match event</text>
+    <rect x="220" y="0" width="10" height="10" rx="2" fill="#F472B6" opacity="0.8"/>
+    <text x="236" y="9" font-family="monospace" font-size="8" fill="#A1A1AA">Real-time sync</text>
+    <rect x="340" y="0" width="10" height="10" rx="2" fill="#3F3F46" opacity="0.8"/>
+    <text x="356" y="9" font-family="monospace" font-size="8" fill="#A1A1AA">No-match / cleanup path</text>
+  </g>
+</svg>
